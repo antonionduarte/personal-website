@@ -1,19 +1,21 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const port = process.env.PORT || 5000;
-
-require('dotenv/config');
 
 // Middlewares
 //app.use('/posts', () => {
 //    console.log('Middleware running...');
 //});
 
+// Import Routes
+const postsRoutes = require('./routes/posts');
 
-// Routes
+// Init Routes
+app.use('/posts', postsRoutes);
+
+// Home
 app.get('/', (req, res) => {
-    res.send('We are on home!');
+    res.send('<h1>We are on home!</h1>');
 })
 
 // Connect to DB
@@ -25,6 +27,8 @@ mongoose.connect('mongodb://rorisjack:catrapim123@cluster0.ncrey.mongodb.net/per
 //app.get('/posts', (req, res) => {
 //    res.send('Posts');
 //})
+
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
     console.log(`Server started on port: ${port}`)
