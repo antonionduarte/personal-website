@@ -4,11 +4,16 @@
   "description": "A personal developer website for displaying projects and a simple blog using MongoDB and Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
   },
   "author": "António Duarte",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
