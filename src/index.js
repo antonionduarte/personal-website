@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const app = express();
 
 // Middlewares
@@ -18,11 +19,11 @@ app.get('/', (req, res) => {
     res.send('<h1>We are on home!</h1>');
 })
 
-// Connect to DB
-mongoose.connect('mongodb://rorisjack:catrapim123@cluster0.ncrey.mongodb.net/personal-website?retryWrites=true&w=majority',
-    { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-        console.log('Connected to DB.');
-    })
+// DB Config and Connection
+const db = require('../config/keys').mongoURI;
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+    console.log('Connected to DB.');
+})
 
 //app.get('/posts', (req, res) => {
 //    res.send('Posts');
