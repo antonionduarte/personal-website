@@ -4,6 +4,7 @@
   "description": "A personal developer website for displaying projects and a simple blog using MongoDB and Node.js",
   "main": "index.js",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "start": "node server/index.js",
     "server": "nodemon server/index.js",
     "client": "npm start --prefix client",
