@@ -11,9 +11,9 @@ const db = require('../config/keys').mongoURI;
 
 // Connect to MongoDB
 mongoose
-    .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Connected to DB'))
-    .catch(err => console.log(err));
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to DB'))
+  .catch(err => console.log(err));
 
 // Use Routes
 const postRoutes = require('./routes/posts')
@@ -23,5 +23,5 @@ app.use('/posts', postRoutes);
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
-    console.log(`Server started on port: ${port}`)
+  console.log(`Server started on port: ${port}`)
 })
