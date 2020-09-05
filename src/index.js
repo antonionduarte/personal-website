@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // Middlewares
+app.use(bodyParser.json());
+
 //app.use('/posts', () => {
 //    console.log('Middleware running...');
 //});
