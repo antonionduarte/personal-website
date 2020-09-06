@@ -1,5 +1,6 @@
-# Node Modules folder
-/src/node_modules/
+# Node Modules folders
+**/node_modules/
+
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
