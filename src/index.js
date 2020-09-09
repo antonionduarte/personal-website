@@ -15,10 +15,11 @@ app.use(express.urlencoded({ extended: false }));
 const db = require('../config/keys').mongoURI;
 
 // Connect to MongoDB
-mongoose
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
-  .then(() => console.log('Connected to DB'))
-  .catch(err => console.log(err));
+(async () => {
+  await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, () => {
+    console.log("Connected to DB");
+  })
+})();
 
 // Articles
 const Article = require('./models/Article');
