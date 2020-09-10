@@ -20,7 +20,12 @@ const db = require('../config/keys').mongoURI;
   })
 })()
 
-// Articles and Routes
+// Admin login and routes
+const authenticationRouter = require('./routes/login')
+app.use('/admin', authenticationRouter)
+app.use('/admin', authenticationRouter)
+
+// Article and routes
 const Article = require('./models/Article')
 app.get('/', async (req, res) => {
   const articles = await Article.find().sort({
