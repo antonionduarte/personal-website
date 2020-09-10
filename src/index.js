@@ -5,23 +5,20 @@ const app = express();
 // Set view engine
 app.set('view engine', 'ejs');
 
-// Bodyparser Middleware
+// Middlewares
 app.use(express.json());
-
-// URL Encoder
 app.use(express.urlencoded({ extended: false }));
 
-// DB Config
+// Config and Connect to DB
 const db = require('../config/keys').mongoURI;
 
-// Connect to MongoDB
 (async () => {
   await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, () => {
     console.log("Connected to DB");
   })
 })();
 
-// Articles
+// Articles and Routes
 const Article = require('./models/Article');
 app.get('/', async (req, res) => {
   const articles = await Article.find().sort({
@@ -30,7 +27,6 @@ app.get('/', async (req, res) => {
   res.render('articles/index', { articles: articles })
 });
 
-// Use Routes
 const articleRouter = require('./routes/articles');
 app.use('/articles', articleRouter);
 
