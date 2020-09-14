@@ -8,8 +8,8 @@
 </head>
 
 <body>
-  <h1>Login</h1>
-  <form action="/admin/login" method='POST'>
+  <h1>Register</h1>
+  <form action="/authentication/register" method='POST'>
     <div>
       <label for="name">Name</label>
       <input type="text" id="name" name="name" required>
@@ -22,9 +22,9 @@
       <label for="password">Password</label>
       <input type="password" id="password" name="password" required>
     </div>
-    <button type="submit">Login</button>
+    <button type="submit">Register</button>
   </form>
+  <a href="/authentication/login">Login</a>
 </body>
-<a href="/admin/register">Register</a>
 
 </html>

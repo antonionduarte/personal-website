@@ -2,6 +2,11 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 const methodOverride = require('method-override')
+const passport = require('passport')
+
+// Authentication
+//const initializePassport = require('./config/passport')
+//initializePassport(passport, email => User.email === email)
 
 // Set view engine
 app.set('view engine', 'ejs')
@@ -12,7 +17,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 
 // Config and Connect to DB
-const db = require('../config/keys').mongoURI;
+const db = require('./config/keys').mongoURI;
 
 (async () => {
   await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, () => {
@@ -21,9 +26,9 @@ const db = require('../config/keys').mongoURI;
 })()
 
 // Admin login and routes
-const authenticationRouter = require('./routes/login')
-app.use('/admin', authenticationRouter)
-app.use('/admin', authenticationRouter)
+const authenticationRouter = require('./routes/authentication')
+app.use('/authentication', authenticationRouter)
+app.use('/authentication', authenticationRouter)
 
 // Article and routes
 const Article = require('./models/Article')
@@ -35,6 +40,7 @@ app.get('/', async (req, res) => {
 })
 
 const articleRouter = require('./routes/articles')
+const User = require('./models/User')
 app.use('/articles', articleRouter)
 
 // Start Server and Port configuration

@@ -2,16 +2,16 @@ const express = require('express')
 const bcrypt = require('bcrypt')
 const router = express.Router()
 
-const User = require('./../models/User')
+const User = require('../models/User')
 
 // GET route for login
 router.get('/login', (req, res) => {
-  res.render('admin/login')
+  res.render('authentication/login')
 })
 
 // GET route for register
 router.get('/register', (req, res) => {
-  res.render('admin/register')
+  res.render('authentication/register')
 })
 
 // POST route for register
@@ -23,9 +23,9 @@ router.post('/register', async (req, res) => {
   user.password = hashedPassword
   try {
     user = await user.save()
-    res.redirect('/admin/login')
+    res.redirect('/authentication/login')
   } catch (err) {
-    res.redirect('/admin/register')
+    res.redirect('/authentication/register')
     console.log(err)
   }
 })
