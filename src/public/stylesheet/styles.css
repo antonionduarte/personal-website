@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #C0E6DE;
+}
+
+body {
+  background-color: #407088;
+  color: #C0E6DE;
+}
+
+header {
+  background-color: #132743;
+  padding: 50px;
+}
+
+header > h1 {
+  color: white;
+  font-size: 40px;
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+}
+
+li {
+  display: inline;
+  margin: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+nav {
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  background-color: #352f44;
+}
+
+/*
+* Articles index
+*/
+
+.article-body {
+  background-color: #C0E6DE;
+  color: cornflowerblue;
+  width: 500px;
+  height: fit-content;
+  position: relative;
+  text-align: justify;
+  margin: 10px auto;
+  padding: 25px;
+}
+
+.article-title {
+  font-family: 'Roboto Slab', serif;
+  color: #5B7B7A;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.article-description {
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.article-date {
+  color: #C6878F;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/*
+* Buttons
+*/
+
+.button-normal {
+  color: red;
+}
+
+.button-admin {
+  color: green;
+}
