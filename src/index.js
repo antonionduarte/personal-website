@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 const methodOverride = require('method-override')
-const passport = require('passport')
+//const passport = require('passport')
 
 // Authentication
 //const initializePassport = require('./config/passport')
@@ -10,6 +10,9 @@ const passport = require('passport')
 
 // Set view engine
 app.set('view engine', 'ejs')
+
+// Set public folder
+app.use(express.static(__dirname + '/public'))
 
 // Middlewares
 app.use(express.json())
