@@ -5,38 +5,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog</title>
-  <link rel="stylesheet" href="../../stylesheet/styles.css" type="text/css">
+  <link rel="stylesheet" href="/stylesheet/styles.css" type="text/css">
 </head>
 
 <body>
+  <!-- Header -->
   <header>
     <h1>{ Blog.js }</h1>
   </header>
+
+  <!-- Navbar -->
   <nav>
     <ul>
       <li><a>Home</a></li>
       <li><a>Sobre</a></li>
     </ul>
   </nav>
-  <a href="/articles/new" class="btn btn-success">New Article</a>
 
-  <% articles.forEach(article => { %>
-  <div class="article-body">
-    <div class="">
-      <div class="article-date">
-        <%= article.createdAt.toLocaleDateString() %>
+  <!-- Articles -->
+  <div id="particles-js">
+    <div class="articles">
+      <% articles.forEach(article => { %>
+      <div class="article-body">
+        <div class="article-date"> <%= article.createdAt.toLocaleDateString() %> </div>
+        <h4 class="article-title"><%= article.title %></h4>
+        <div class="article-description"><%= article.description %></div>
+        <a href=" articles/<%= article.slug %>" class="button-normal">Read More</a>
+        <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="button-critical"></form>
       </div>
-      <h4 class="article-title"><%= article.title %></h4>
-      <div class="article-description"><%= article.description %></div>
-      <a href=" articles/<%= article.slug %>" class="button-normal">Read More</a>
-      <a href="articles/edit/<%= article.id %>" class="button-admin">Edit</a>
-      <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="button-critical">
-        <button type="submit" class="">Delete</button>
-      </form>
+      <% }) %>
     </div>
   </div>
-  <% }) %>
 
+  <!-- Scripts -->
+  <script src="/scripts/particles.js" type="text/javascript"></script>
+  <script src="/scripts/app.js" type="text/javascript"></script>
 </body>
 
 </html>
