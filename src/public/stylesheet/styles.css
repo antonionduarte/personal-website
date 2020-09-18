@@ -5,17 +5,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #C0E6DE;
+  color: white;
 }
 
 body {
-  background-color: #407088;
+  background-color: #464866;
   color: #C0E6DE;
 }
 
 header {
-  background-color: #132743;
+  background-color: #24274D;
   padding: 50px;
+  width: 100%;
 }
 
 header > h1 {
@@ -25,18 +26,24 @@ header > h1 {
   text-align: center;
 }
 
+nav {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  font-size: 17px;
+  color: white;
+  background-color: #24274D;
+  box-shadow: 0 2.5px 10px #000000;
+}
+
 li {
   display: inline;
   margin: 10px;
   font-family: 'Roboto', sans-serif;
+  color: white;
 }
 
-nav {
-  margin: auto;
-  text-align: center;
-  padding: 10px;
-  background-color: #352f44;
-}
 
 /*
 * Articles index
@@ -54,7 +61,7 @@ nav {
 }
 
 .article-body {
-  background-color: #C0E6DE;
+  background-color: #AAABB8;
   color: cornflowerblue;
   width: 600px;
   height: fit-content;
@@ -68,7 +75,7 @@ nav {
 
 .article-title {
   font-family: 'Roboto Slab', serif;
-  color: #5B7B7A;
+  color: black;
   font-size: 30px;
   margin-bottom: 5px;
 }
@@ -82,7 +89,7 @@ nav {
 }
 
 .article-date {
-  color: #C6878F;
+  color: #24274D;
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -103,13 +110,52 @@ nav {
   font: bold 11px Arial;
   color: #333333;
   padding: 6px 12px 6px 12px;
-  border-top: 1px solid #132743;
-  border-right: 1px solid #132743;
-  border-bottom: 1px solid #132743;
-  border-left: 1px solid #132743;
+  border-top: 1px solid #24274D;
+  border-right: 1px solid #24274D;
+  border-bottom: 1px solid #24274D;
+  border-left: 1px solid #24274D;
   border-radius: 10px;
 }
 
 .button-admin {
   color: green;
+}
+
+/*
+* Article individual
+*/
+
+.article {
+  background-color: #AAABB8;
+  box-shadow: 0 2.5px 10px #000000;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#article-title {
+  font-family: 'Roboto Slab', serif;
+  color: black;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+#article-content {
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+#article-date {
+  color: #24274D;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

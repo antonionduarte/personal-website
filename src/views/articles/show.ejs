@@ -9,18 +9,35 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1 class="mb-1"><%= article.title %></h1>
-    <div class="text-muted mb-2">
+  <!-- Header -->
+  <header>
+    <h1>{ Blog em processo de desenvolvimento }</h1>
+  </header>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a>Home</a></li>
+      <li><a>Sobre</a></li>
+    </ul>
+  </nav>
+
+  <!-- Article -->
+  <div class="article">
+    <div id="article-date">
       <%= article.createdAt.toLocaleDateString() %>
     </div>
+    <h1 id="article-title"><%= article.title %></h1>
     <a href="/" class="btn btn-secondary">All Articles</a>
     <a href="/articles/edit/<%= article.id%>" class="btn btn-info">Edit</a>
-    <div>
+    <div id="article-content">
       <%- article.sanitizedHTML %>
     </div>
   </div>
 
+  <!-- Scripts -->
+  <script src="/scripts/particles.js" type="text/javascript"></script>
+  <script src="/scripts/app.js" type="text/javascript"></script>
 </body>
 
 </html>
