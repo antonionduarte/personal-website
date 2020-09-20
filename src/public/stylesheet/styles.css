@@ -5,12 +5,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
 }
 
 body {
   background-color: #464866;
-  color: #C0E6DE;
 }
 
 header {
@@ -43,7 +41,6 @@ li {
   font-family: 'Roboto', sans-serif;
   color: white;
 }
-
 
 /*
 * Articles index
@@ -156,6 +153,6 @@ li {
 
 #article-date {
   color: #24274D;
-  margin-top: 5px;
+  margin-top: 20px;
   margin-bottom: 5px;
 }
