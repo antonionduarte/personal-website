@@ -22,17 +22,42 @@
     </ul>
   </nav>
 
-  <!-- Article -->
-  <div class="article">
-    <div id="article-date">
-      <%= article.createdAt.toLocaleDateString() %>
+  <!-- Main body -->
+  <div id="particles-js">
+
+    <!-- Article -->
+    <div class="article">
+      <a href="/" class="button-normal">All Articles</a>
+      <a href="/articles/edit/<%= article.id%>" class="button-normal">Edit</a>
+      <div id="article-date">
+        <%= article.createdAt.toLocaleDateString() %>
+      </div>
+      <h1 id="article-title"><%= article.title %></h1>
+      <div id="article-content">
+        <%- article.sanitizedHTML %>
+      </div>
     </div>
-    <h1 id="article-title"><%= article.title %></h1>
-    <a href="/" class="btn btn-secondary">All Articles</a>
-    <a href="/articles/edit/<%= article.id%>" class="btn btn-info">Edit</a>
-    <div id="article-content">
-      <%- article.sanitizedHTML %>
-    </div>
+
+    <!-- New comment -->
+    <form action="/articles/do-comment?_method=PUT/" method="POST">
+      <div>
+        <label for="title">Title</label>
+        <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control">
+      </div>
+
+      <div>
+        <label for="description">Description</label>
+        <textarea name="description" id="description" class="form-control"> <%= article.description %> </textarea>
+      </div>
+
+      <div>
+        <label for="markdown">Markdown</label>
+        <textarea required name="markdown" id="markdown" class="form-control"> <%= article.markdown %> </textarea>
+      </div>
+
+      <button type="submit" class="button-normal">Save</button>
+    </form>
+
   </div>
 
   <!-- Scripts -->

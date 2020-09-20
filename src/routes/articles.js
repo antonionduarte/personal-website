@@ -29,6 +29,23 @@ router.post('/', async (req, res, next) => {
   next()
 }, saveAndRedirect('new'))
 
+// POST route for comment
+/* router.post('/comment', async (req, res) => {
+  req.comment = new Comment({
+    author: req.body.author,
+    content: req.body.content
+  })
+  try {
+    comment = await comment.save()
+  } catch (err) {
+    console.log(err)
+  }
+}) */
+
+router.put('do-comment', async (req, res) => {
+
+})
+
 // PUT route
 router.put('/:id', async (req, res, next) => {
   req.article = await Article.findById(req.params.id)
