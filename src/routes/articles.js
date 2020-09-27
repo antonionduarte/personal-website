@@ -1,6 +1,4 @@
 const express = require("express")
-const marked = require('marked')
-const slugify = require('slugify')
 const router = express.Router()
 
 const Article = require('./../models/Article')
