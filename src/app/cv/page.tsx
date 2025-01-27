@@ -54,12 +54,11 @@ export default function CVPage() {
                         </CardHeader>
                         <CardContent>
                             <p className="text-muted-foreground">
-                                I&#39;m a 23-year-old computer scientist in an MSc program focusing on distributed systems, computer
-                                networks, network security, and parallel computing. I am interested in Unix-based operating systems and
-                                am an avid Linux user. I enjoy tailoring my system visually and functionally to cater to my needs and
-                                make my computer as efficient as possible. My interest in these subjects has led me to undertake an
-                                undergraduate research program at my University&#39;s Computer Science Laboratory. I plan to further my
-                                research experience during my MSc thesis on Application Level Publish-Subscribe / Multicast solution.
+                                Hey all, I&#39;m a 23-year-old Computer Scientist in an M.Sc. focused on Distributed Systems, Computer
+                                Networks, Network Security, and Parallel Computing. I am interested in Unix-based operating systems and
+                                am an avid Linux user.
+                                I&#39;m very interested in Distributed Systems (although I honestly enjoy keeping myself updated in most areas related to CS, from Programming Languages to Machine Learning), and as
+                                such my career so far has been focused around Backend & Data Engineering.
                             </p>
                         </CardContent>
                     </Card>
@@ -73,9 +72,9 @@ export default function CVPage() {
                             {/* Paddle */}
                             <div className="flex gap-4">
                                 <Avatar className="h-12 w-12 rounded-xl">
-                                    <Image src={'/paddle_logo.svg'} alt="Aptoide logo" width={150} height={150} />
+                                    <Image src={'/paddle_logo.svg'} alt="Aptoide logo" width={48} height={48} />
                                 </Avatar>
-                                <div className="space-y-2">
+                                <div className="space-y-2 w-full">
                                     <div className="flex items-center justify-between">
                                         <h3 className="font-semibold">Software Engineer</h3>
                                         <div className="text-sm text-muted-foreground">January 2024 - Now</div>
@@ -86,16 +85,10 @@ export default function CVPage() {
                                     </div>
                                     <ul className="ml-4 list-disc text-sm text-muted-foreground">
                                         <li>
-                                            Development of Backend Services using a diverse tech-stack that includes Rust (actix-web) and
-                                            Python (Django, Flask and FastAPI).
+                                            Maintenance and Development of a Data Processing Pipeline in Python.
                                         </li>
                                         <li>
-                                            Distributed Deployment and Monitoring of Microservices using Docker, PostgresSQL, Redis and
-                                            ElasticSearch.
-                                        </li>
-                                        <li>
-                                            Developed Aptoide&#39;s performance-critical Mobile Measurement Platform in Rust, through which 100%
-                                            of the application download requests flow.
+                                            Distributed Service Deployment and Monitoring using Kubernetes and ElasticStack.
                                         </li>
                                     </ul>
                                 </div>
@@ -104,9 +97,9 @@ export default function CVPage() {
                             {/* Aptoide */}
                             <div className="flex gap-4">
                                 <Avatar className="h-12 w-12 rounded-xl">
-                                    <Image src={'/aptoide_logo.svg'} alt="Aptoide logo" width={150} height={150} />
+                                    <Image src={'/aptoide_logo.svg'} alt="Aptoide logo" width={48} height={48} />
                                 </Avatar>
-                                <div className="space-y-2">
+                                <div className="space-y-2 w-full">
                                     <div className="flex items-center justify-between">
                                         <h3 className="font-semibold">Backend Engineer</h3>
                                         <div className="text-sm text-muted-foreground">December 2023 - Now</div>
@@ -117,7 +110,7 @@ export default function CVPage() {
                                     </div>
                                     <ul className="ml-4 list-disc text-sm text-muted-foreground">
                                         <li>
-                                            Development of Backend Services using a diverse tech-stack that includes Rust (actix-web) and
+                                            Development of Backend Services using Rust (actix-web) and
                                             Python (Django, Flask and FastAPI).
                                         </li>
                                         <li>
@@ -125,8 +118,7 @@ export default function CVPage() {
                                             ElasticSearch.
                                         </li>
                                         <li>
-                                            Developed Aptoide&#39;s performance-critical Mobile Measurement Platform in Rust, through which 100%
-                                            of the application download requests flow.
+                                            Developed Aptoide&#39;s performance-critical Mobile Measurement Platform in Rust.
                                         </li>
                                     </ul>
                                 </div>
@@ -137,7 +129,7 @@ export default function CVPage() {
                                 <Avatar className="h-12 w-12 rounded-xl">
                                     <Image src={'/gr_logo.svg'} alt="Generation Resonance logo" width={150} height={150} />
                                 </Avatar>
-                                <div className="space-y-2">
+                                <div className="space-y-2 w-full">
                                     <div className="flex items-center justify-between">
                                         <h3 className="font-semibold">Department Head</h3>
                                         <div className="text-sm text-muted-foreground">May 2024 - Now</div>
@@ -146,7 +138,7 @@ export default function CVPage() {
                                         <span className="font-medium">Generation Resonance</span>
                                         <Badge variant="secondary">Lisbon, Portugal</Badge>
                                     </div>
-                                    <ul className="ml-4 list-disc text-sm text-muted-foreground">
+                                    <ul className="ml-4 list-disc text-sm text-muted-foreground ">
                                         <li>
                                             Management of the Technology and Innovation team at Generation Resonance, a United Nations
                                             Association Portugal associated Youth NGO, delegating tasks, organizing and distributing work
@@ -165,7 +157,7 @@ export default function CVPage() {
                                 <Avatar className="h-12 w-12 rounded-xl">
                                     <Image src={"/nova_lincs.png"} alt="NOVA Lincs logo" width={150} height={150} />
                                 </Avatar>
-                                <div className="space-y-2">
+                                <div className="space-y-2 w-full">
                                     <div className="flex items-center justify-between">
                                         <h3 className="font-semibold">Undergraduate Researcher</h3>
                                         <div className="text-sm text-muted-foreground">March 2022 - September 2022</div>
@@ -203,7 +195,7 @@ export default function CVPage() {
                             {/* M.Sc. */}
                             <div className="space-y-2">
                                 <div className="flex items-center justify-between">
-                                    <h3 className="font-semibold">MSc. in Computer Science and Engineering</h3>
+                                    <h3 className="font-semibold">M.Sc. in Computer Science and Engineering</h3>
                                     <div className="text-sm text-muted-foreground">Sept. 2022 - Now</div>
                                 </div>
                                 <div className="flex items-center gap-2">
@@ -218,7 +210,7 @@ export default function CVPage() {
                             {/* BSc */}
                             <div className="space-y-2">
                                 <div className="flex items-center justify-between">
-                                    <h3 className="font-semibold">BSc. in Computer Science and Engineering</h3>
+                                    <h3 className="font-semibold">B.Sc. in Computer Science and Engineering</h3>
                                     <div className="text-sm text-muted-foreground">Sept. 2019 - Aug. 2022</div>
                                 </div>
                                 <div className="flex items-center gap-2">
@@ -242,8 +234,8 @@ export default function CVPage() {
                                     <Badge variant="secondary">Dresden, Germany</Badge>
                                 </div>
                                 <ul className="ml-4 list-disc text-sm text-muted-foreground">
-                                    <li>Scholarship-backed exchange programme</li>
-                                    <li>Distributed Systems, Parallel Computing, Systems Dependability</li>
+                                    <li>Scholarship-backed exchange programme.</li>
+                                    <li>Focus on Distributed Systems, Parallel Computing and Systems Dependability.</li>
                                 </ul>
                             </div>
                         </CardContent>
@@ -257,7 +249,7 @@ export default function CVPage() {
                         <CardContent>
                             <div className="space-y-2">
                                 <div className="flex items-center justify-between">
-                                    <h3 className="font-semibold">Presentation of a Scientific Paper regarding Distributed Systems</h3>
+                                    <h3 className="font-semibold">Scientific Paper on Causal Consistency Simulation</h3>
                                     <div className="text-sm text-muted-foreground">Sept. 2022</div>
                                 </div>
                                 <div className="flex items-center gap-2">
@@ -265,8 +257,7 @@ export default function CVPage() {
                                     <Badge variant="secondary">Guarda, Portugal</Badge>
                                 </div>
                                 <p className="text-sm text-muted-foreground">
-                                    Presented a paper regarding accurate simulation to obtain performance metrics of different Causal
-                                    Consistency based replication protocols.
+                                    Scientific paper presentation on Accurate Simulation of Causal Consistency Replication protocols.
                                 </p>
                             </div>
                         </CardContent>
