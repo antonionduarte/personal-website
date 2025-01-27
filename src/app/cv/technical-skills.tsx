@@ -2,13 +2,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 const skills = [
-    { category: "Programming Languages", items: ["Rust", "Python", "JavaScript", "TypeScript", "Java", "C++"] },
+    { category: "Programming Languages", items: ["Rust", "Python", "JavaScript", "TypeScript", "Java", "C"] },
     { category: "Web Technologies", items: ["React", "Next.js", "Node.js", "HTML", "CSS", "TailwindCSS"] },
-    { category: "Databases", items: ["PostgreSQL", "MongoDB", "Redis", "ElasticSearch"] },
-    { category: "DevOps & Tools", items: ["Docker", "Git", "CI/CD", "Linux", "Bash"] },
+    { category: "Databases", items: ["PostgresSQL", "MySQL", "SQlite", "MongoDB", "Redis", "ElasticSearch"] },
+    { category: "DevOps & Tools", items: ["Docker", "Kubernetes", "Git", "CI/CD", "Linux", "Bash"] },
     {
         category: "Concepts",
-        items: ["Distributed Systems", "Microservices", "RESTful APIs", "GraphQL", "Agile Methodologies"],
+        items: ["Distributed Systems", "Microservices", "RESTful APIs", "Network Security", "Agile Methodologies"],
     },
 ]
 
