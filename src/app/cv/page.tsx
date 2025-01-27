@@ -102,7 +102,7 @@ export default function CVPage() {
                                 <div className="space-y-2 w-full">
                                     <div className="flex items-center justify-between">
                                         <h3 className="font-semibold">Backend Engineer</h3>
-                                        <div className="text-sm text-muted-foreground">December 2023 - Now</div>
+                                        <div className="text-sm text-muted-foreground">December 2023 - December 2024</div>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <span className="font-medium">Aptoide</span>
@@ -132,7 +132,7 @@ export default function CVPage() {
                                 <div className="space-y-2 w-full">
                                     <div className="flex items-center justify-between">
                                         <h3 className="font-semibold">Department Head</h3>
-                                        <div className="text-sm text-muted-foreground">May 2024 - Now</div>
+                                        <div className="text-sm text-muted-foreground">May 2024 - January 2025</div>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <span className="font-medium">Generation Resonance</span>
