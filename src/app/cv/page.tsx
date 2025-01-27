@@ -31,7 +31,7 @@ export default function CVPage() {
                                     <span>antonionpnduarte@gmail.com</span>
                                 </div>
                                 <Link
-                                    href="https://github.com/antonioduarte"
+                                    href="https://github.com/antonionduarte"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-2 hover:text-foreground transition-colors"
