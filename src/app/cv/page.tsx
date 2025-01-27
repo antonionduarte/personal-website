@@ -41,7 +41,7 @@ export default function CVPage() {
                                 </Link>
                                 <div className="flex items-center gap-2">
                                     <MapPin className="h-4 w-4" />
-                                    <span>(+351) 915761384</span>
+                                    <span>Lisbon, Portugal</span>
                                 </div>
                             </div>
                         </div>
