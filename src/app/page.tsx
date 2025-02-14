@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Github, BookOpen, ExternalLink, Briefcase, User, Cpu } from "lucide-react"
 import BentoCard from "@/components/bento-card"
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision"
+import { HyperText } from "@/components/magicui/hyper-text";
 
 const skills = [
   "Rust",
@@ -43,7 +44,7 @@ export default function Home() {
                   height={150}
                   className="rounded-[1rem] border-4 border-white w-32 h-32 md:w-[150px] md:h-[150px] transition-transform duration-300 ease-in-out transform hover:-rotate-3"                />
                 <div className="text-center md:text-left">
-                  <h1 className="text-3xl md:text-4xl font-bold mb-2">António Duarte</h1>
+                  <h1 className="text-3xl md:text-4xl font-bold mb-2"><HyperText>António Duarte</HyperText></h1>
                   <p className="text-xl mb-4">Software Engineer @ Paddle | Distributed and Parallel Systems </p>
                   <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
                     <Badge variant="secondary" className="bg-white/20 hover:bg-white/30 transition-colors">
