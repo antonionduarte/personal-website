@@ -72,20 +72,17 @@ export default function Home() {
           <BentoCard title="About Me" icon={<User className="w-4 h-4" />} className="md:col-span-2">
             <div className="space-y-4">
               <p className="text-muted-foreground">
-                I'm a 23-year-old computer scientist passionate about distributed systems, computer networks, and
-                parallel computing. Currently pursuing my MSc, I'm dedicated to pushing the boundaries of what's
-                possible in software engineering.
+                Hey all, I'm a 23-year-old Software Engineer specialized in Distributed & Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.
               </p>
               <p className="text-muted-foreground">
-                My research focuses on enhancing the performance and reliability of distributed systems, with a
-                particular interest in consistency models and their real-world applications.
+                I'm very interested in Distributed Systemsm, Parallel Computing and High Performance Computing (although I honestly enjoy keeping myself updated in most areas related to CS, from Programming Languages to Machine Learning), and as such my career so far has been focused around Backend & Data Engineering.
               </p>
             </div>
           </BentoCard>
 
           {/* Skills Card */}
           <BentoCard title="Skills" icon={<Cpu className="w-4 h-4" />} className="group">
-            <div className="flex flex-wrap gap-2">
+            <div className="mt-[0.3rem] flex flex-wrap gap-2">
               {skills.map((skill) => (
                 <Badge key={skill} variant="secondary" className="bg-primary/10 hover:bg-primary/20 transition-colors">
                   {skill}
