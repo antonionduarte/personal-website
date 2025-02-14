@@ -72,10 +72,10 @@ export default function Home() {
           <BentoCard title="About Me" icon={<User className="w-4 h-4" />} className="md:col-span-2">
             <div className="space-y-4">
               <p className="text-muted-foreground">
-                Hey all, I'm a 23-year-old Software Engineer specialized in Distributed & Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.
+                Hey all, I&apos;m a 23-year-old Software Engineer specialized in Distributed & Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.
               </p>
               <p className="text-muted-foreground">
-                I'm very interested in Distributed Systemsm, Parallel Computing and High Performance Computing (although I honestly enjoy keeping myself updated in most areas related to CS, from Programming Languages to Machine Learning), and as such my career so far has been focused around Backend & Data Engineering.
+                I&apos;m very interested in Distributed Systemsm, Parallel Computing and High Performance Computing (although I honestly enjoy keeping myself updated in most areas related to CS, from Programming Languages to Machine Learning), and as such my career so far has been focused around Backend & Data Engineering.
               </p>
             </div>
           </BentoCard>
@@ -97,7 +97,7 @@ export default function Home() {
               Coming Soon... 
             </h3>
             <p className="text-sm text-muted-foreground mb-4">
-              When I eventually have a thought worth writing, I shall do it, but for now, I'll remain in silence.
+              When I eventually have a thought worth writing, I shall do it, but for now, I&apos;ll remain in silence.
             </p>
             <Button asChild variant="ghost" size="sm" className="group-hover:text-primary transition-colors">
               <Link href="/blog/understanding-distributed-systems">
