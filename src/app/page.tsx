@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Github, BookOpen, ExternalLink, Briefcase, User, Cpu } from "lucide-react"
 import BentoCard from "@/components/bento-card"
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision"
 
 const skills = [
   "Rust",
@@ -26,7 +27,7 @@ export default function Home() {
       <div className="grid grid-cols-1 gap-6">
         {/* Banner */}
         <BentoCard className="col-span-full" noPadding>
-          <div className="relative min-h-[400px] md:h-[400px] overflow-hidden rounded-lg bg-gradient-to-br from-purple-700 via-blue-600 to-cyan-500">
+          <BackgroundBeamsWithCollision className="relative min-h-[400px] md:h-[400px] overflow-hidden rounded-lg bg-gradient-to-br from-purple-700 via-blue-600 to-cyan-500">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="p-6 md:p-10 flex flex-col md:flex-row items-center md:items-center gap-6 text-white">
                 <Image
@@ -64,18 +65,18 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+            </ BackgroundBeamsWithCollision>
         </BentoCard>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* About Me Card */}
-          <BentoCard title="About Me" icon={<User className="w-4 h-4" />} className="md:col-span-2">
+          <BentoCard animated={true} title="About Me" icon={<User className="w-4 h-4" />} className="md:col-span-2">
             <div className="space-y-4">
               <p className="text-muted-foreground">
                 Hey all, I&apos;m a 23-year-old Software Engineer specialized in Distributed & Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.
               </p>
               <p className="text-muted-foreground">
-                I&apos;m very interested in Distributed Systemsm, Parallel Computing and High Performance Computing (although I honestly enjoy keeping myself updated in most areas related to CS, from Programming Languages to Machine Learning), and as such my career so far has been focused around Backend & Data Engineering.
+                I&apos;m very interested in Distributed Systems, Parallel Computing and High Performance Computing (although I honestly enjoy keeping myself updated in most areas related to CS, from Programming Languages to Machine Learning), and as such my career so far has been focused around Backend & Data Engineering.
               </p>
             </div>
           </BentoCard>
@@ -92,7 +93,7 @@ export default function Home() {
           </BentoCard>
 
           {/* Latest Blog Post Card */}
-          <BentoCard title="Latest Blog Post" icon={<BookOpen className="w-4 h-4" />} className="group">
+          <BentoCard animated={true} title="Latest Blog Post" icon={<BookOpen className="w-4 h-4" />} className="group">
             <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
               Coming Soon... 
             </h3>
@@ -108,7 +109,7 @@ export default function Home() {
           </BentoCard>
 
           {/* Featured Project Card 1 */}
-          <BentoCard title="Featured Project" icon={<Briefcase className="w-4 h-4" />} className="group">
+          <BentoCard animated={true} title="Featured Project" icon={<Briefcase className="w-4 h-4" />} className="group">
             <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
               Causal Consistency Simulator
             </h3>
@@ -128,7 +129,7 @@ export default function Home() {
           </BentoCard>
 
           {/* Featured Project Card 2 */}
-          <BentoCard title="Featured Project" icon={<Briefcase className="w-4 h-4" />} className="group">
+          <BentoCard animated={true} title="Featured Project" icon={<Briefcase className="w-4 h-4" />} className="group">
             <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
               Go Protocol Runtime 
             </h3>

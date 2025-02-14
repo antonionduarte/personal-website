@@ -8,9 +8,10 @@ interface BentoCardProps {
   icon?: ReactNode
   className?: string
   noPadding?: boolean
+  animated?: boolean
 }
 
-export default function BentoCard({ children, title, icon, className, noPadding = false }: BentoCardProps) {
+export default function BentoCard({ children, title, icon, className, noPadding = false, animated = false }: BentoCardProps) {
   return (
     <Card className={cn("overflow-hidden transition-all duration-300 ease-in-out hover:shadow-lg", className)}>
       {title && (
@@ -21,7 +22,9 @@ export default function BentoCard({ children, title, icon, className, noPadding 
           </CardTitle>
         </CardHeader>
       )}
-      <CardContent className={cn(noPadding ? "p-0" : "")}>{children}</CardContent>
+      <CardContent className={cn(noPadding ? "p-0" : "", animated ? "transition-transform duration-300 ease-in-out transform hover:translate-x-2" : "")}>
+        {children}
+      </CardContent>
     </Card>
   )
 }
