@@ -22,9 +22,10 @@ export default function CVPage() {
                                 className="rounded-full"
                             />
                         </div>
+
                         <div className="flex flex-col justify-center items-center sm:items-start h-full">
                             <h1 className="text-4xl font-bold tracking-tight">António Duarte</h1>
-                            <p className="text-xl text-muted-foreground mb-4">Computer Science</p>
+                            <p className="text-xl text-muted-foreground mb-4">Software Engineer</p>
                             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-muted-foreground">
                                 <div className="flex items-center gap-2">
                                     <Mail className="h-4 w-4" />
@@ -54,9 +55,7 @@ export default function CVPage() {
                         </CardHeader>
                         <CardContent>
                             <p className="text-muted-foreground">
-                                Hey all, I&#39;m a 23-year-old Computer Scientist in an M.Sc. focused on Distributed Systems, Computer
-                                Networks, Network Security, and Parallel Computing. I am interested in Unix-based operating systems and
-                                am an avid Linux user.
+                                Hey all, I&#39;m a 23-year-old Software Engineer specialized in Distributed & Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.
                                 I&#39;m very interested in Distributed Systems (although I honestly enjoy keeping myself updated in most areas related to CS, from Programming Languages to Machine Learning), and as
                                 such my career so far has been focused around Backend & Data Engineering.
                             </p>
@@ -202,9 +201,10 @@ export default function CVPage() {
                                     <span className="font-medium">SST-UNL (NOVA School of Science and Technology)</span>
                                     <Badge variant="secondary">Lisbon, Portugal</Badge>
                                 </div>
-                                <p className="text-sm text-muted-foreground">
-                                    Master&#39;s with a focus on Distributed Systems, Reliability, Concurrent Computing and Network Security.
-                                </p>
+                                <ul className="ml-4 list-disc text-sm text-muted-foreground">
+                                    <li>Major in Distributed and Parallel Systems.</li>
+                                    <li>Minor in Algorithms and Programming Languages Design.</li>
+                                </ul>
                             </div>
 
                             {/* BSc */}

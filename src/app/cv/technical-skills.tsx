@@ -18,6 +18,7 @@ export default function TechnicalSkills() {
             <CardHeader>
                 <CardTitle>Technical Skills</CardTitle>
             </CardHeader>
+
             <CardContent className="space-y-6">
                 {skills.map((skillGroup) => (
                     <div key={skillGroup.category} className="space-y-2">
