@@ -206,7 +206,7 @@ export default function CVPage() {
                 altText="Paddle"
                 title="Paddle"
                 subtitle="Junior Software Engineer"
-                period="January 2024 - Now"
+                period="January 2025 - Now"
                 description={
                   <ul className="ml-4 list-disc text-sm text-white/70">
                     <li>Maintenance and Development of a Data Processing Pipeline in Python.</li>
@@ -237,7 +237,7 @@ export default function CVPage() {
                 roles={[
                   {
                     title: "Department Head",
-                    period: "May 2024 - January 2025",
+                    period: "June 2024 - January 2025",
                     description: (
                       <ul className="ml-4 list-disc text-sm text-white/70">
                         <li>Management of the Technology and Innovation team at Generation Resonance, a United Nations Association Portugal associated Youth NGO, delegating tasks, organizing and distributing work through the team.</li>
@@ -246,7 +246,7 @@ export default function CVPage() {
                   },
                   {
                     title: "Web Developer",
-                    period: "January 2023 - April 2024",
+                    period: "May 2024 - January 2025",
                     description: (
                       <ul className="ml-4 list-disc text-sm text-white/70">
                         <li>Development of the NGO&apos;s website, blog and backend services, using Next.js, Strapi and TailwindCSS, to manage the organization&apos;s activities and projects.</li>
