@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Cpu } from "lucide-react"
 
 const skills = [
     { category: "Programming Languages", items: ["Rust", "Python", "Go", "JavaScript", "TypeScript", "Java 🤢", "C"] },
@@ -16,7 +17,7 @@ export default function TechnicalSkills() {
     return (
         <Card className="sticky top-6">
             <CardHeader>
-                <CardTitle>Technical Skills</CardTitle>
+                <CardTitle className="flex items-center gap-2"><Cpu />Technical Skills</CardTitle>
             </CardHeader>
 
             <CardContent className="space-y-6">

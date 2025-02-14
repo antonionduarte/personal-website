@@ -1,275 +1,367 @@
-import Image from "next/image"
-import { Avatar } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, MapPin, Github } from "lucide-react"
-import Link from "next/link"
-import TechnicalSkills from "./technical-skills"
+"use client";
 
-export default function CVPage() {
-    return (
-        <div className="min-h-screen bg-background p-6 md:p-12">
-            <div className="mx-auto max-w-6xl flex flex-col lg:flex-row gap-8">
-                <div className="lg:w-3/4 space-y-8">
-                    {/* Header */}
-                    <div className="pl-6 grid-cols-1 flex flex-col sm:flex-row items-center sm:items-center gap-6 text-center sm:text-left">
-                        <div>
-                            <Image
-                                src="/profile.jpeg"
-                                alt="António Duarte"
-                                width={150}
-                                height={150}
-                                className="rounded-full"
-                            />
-                        </div>
+import Image from "next/image";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Mail,
+  MapPin,
+  Github,
+  ChevronRightIcon,
+  Briefcase,
+  BookOpen,
+  Presentation,
+  FileText,
+} from "lucide-react";
+import Link from "next/link";
+import TechnicalSkills from "./technical-skills";
+import { motion } from "framer-motion";
+import React from "react";
+import { cn } from "@/lib/utils";
 
-                        <div className="flex flex-col justify-center items-center sm:items-start h-full">
-                            <h1 className="text-4xl font-bold tracking-tight">António Duarte</h1>
-                            <p className="text-xl text-muted-foreground mb-4">Software Engineer</p>
-                            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-muted-foreground">
-                                <div className="flex items-center gap-2">
-                                    <Mail className="h-4 w-4" />
-                                    <span>antonionpnduarte@gmail.com</span>
-                                </div>
-                                <Link
-                                    href="https://github.com/antonionduarte"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-2 hover:text-foreground transition-colors"
-                                >
-                                    <Github className="h-4 w-4" />
-                                    <span>antonioduarte</span>
-                                </Link>
-                                <div className="flex items-center gap-2">
-                                    <MapPin className="h-4 w-4" />
-                                    <span>Lisbon, Portugal</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Summary */}
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Summary</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p className="text-muted-foreground">
-                                Hey all, I&#39;m a 23-year-old Software Engineer specialized in Distributed & Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.
-                                I&#39;m very interested in Distributed Systems (although I honestly enjoy keeping myself updated in most areas related to CS, from Programming Languages to Machine Learning), and as
-                                such my career so far has been focused around Backend & Data Engineering.
-                            </p>
-                        </CardContent>
-                    </Card>
-
-                    {/* Experience */}
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Experience</CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-6">
-                            {/* Paddle */}
-                            <div className="flex gap-4">
-                                <Avatar className="h-12 w-12 rounded-xl">
-                                    <Image src={'/paddle_logo.svg'} alt="Aptoide logo" width={48} height={48} />
-                                </Avatar>
-                                <div className="space-y-2 w-full">
-                                    <div className="flex items-center justify-between">
-                                        <h3 className="font-semibold">Software Engineer</h3>
-                                        <div className="text-sm text-muted-foreground">January 2024 - Now</div>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <span className="font-medium">Paddle</span>
-                                        <Badge variant="secondary">Remote</Badge>
-                                    </div>
-                                    <ul className="ml-4 list-disc text-sm text-muted-foreground">
-                                        <li>
-                                            Maintenance and Development of a Data Processing Pipeline in Python.
-                                        </li>
-                                        <li>
-                                            Distributed Service Deployment and Monitoring using Kubernetes and ElasticStack.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            {/* Aptoide */}
-                            <div className="flex gap-4">
-                                <Avatar className="h-12 w-12 rounded-xl">
-                                    <Image src={'/aptoide_logo.svg'} alt="Aptoide logo" width={48} height={48} />
-                                </Avatar>
-                                <div className="space-y-2 w-full">
-                                    <div className="flex items-center justify-between">
-                                        <h3 className="font-semibold">Backend Engineer</h3>
-                                        <div className="text-sm text-muted-foreground">December 2023 - December 2024</div>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <span className="font-medium">Aptoide</span>
-                                        <Badge variant="secondary">Lisbon, Portugal</Badge>
-                                    </div>
-                                    <ul className="ml-4 list-disc text-sm text-muted-foreground">
-                                        <li>
-                                            Development of Backend Services using Rust (actix-web) and
-                                            Python (Django, Flask and FastAPI).
-                                        </li>
-                                        <li>
-                                            Distributed Deployment and Monitoring of Microservices using Docker, PostgresSQL, Redis and
-                                            ElasticSearch.
-                                        </li>
-                                        <li>
-                                            Developed Aptoide&#39;s performance-critical Mobile Measurement Platform in Rust.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            {/* Generation Resonance */}
-                            <div className="flex gap-4">
-                                <Avatar className="h-12 w-12 rounded-xl">
-                                    <Image src={'/gr_logo.svg'} alt="Generation Resonance logo" width={150} height={150} />
-                                </Avatar>
-                                <div className="space-y-2 w-full">
-                                    <div className="flex items-center justify-between">
-                                        <h3 className="font-semibold">Department Head</h3>
-                                        <div className="text-sm text-muted-foreground">May 2024 - January 2025</div>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <span className="font-medium">Generation Resonance</span>
-                                        <Badge variant="secondary">Lisbon, Portugal</Badge>
-                                    </div>
-                                    <ul className="ml-4 list-disc text-sm text-muted-foreground ">
-                                        <li>
-                                            Management of the Technology and Innovation team at Generation Resonance, a United Nations
-                                            Association Portugal associated Youth NGO, delegating tasks, organizing and distributing work
-                                            through the team.
-                                        </li>
-                                        <li>
-                                            Development of the NGO&#39;s website, blog and backend services, using Next.js, Strapi and
-                                            TailwindCSS, to manage the organization&#39;s activities and projects.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            {/* NOVA Lincs */}
-                            <div className="flex gap-4">
-                                <Avatar className="h-12 w-12 rounded-xl">
-                                    <Image src={"/nova_lincs.png"} alt="NOVA Lincs logo" width={150} height={150} />
-                                </Avatar>
-                                <div className="space-y-2 w-full">
-                                    <div className="flex items-center justify-between">
-                                        <h3 className="font-semibold">Undergraduate Researcher</h3>
-                                        <div className="text-sm text-muted-foreground">March 2022 - September 2022</div>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <span className="font-medium">NOVA Lincs (Laboratory for Computer Science and Informatics)</span>
-                                        <Badge variant="secondary">Lisbon, Portugal</Badge>
-                                    </div>
-                                    <ul className="ml-4 list-disc text-sm text-muted-foreground">
-                                        <li>
-                                            Work in enhancing a distributed systems simulator to achieve realistic throughput and latency
-                                            metrics for consistency model simulations, achieved an accuracy relative to real code execution of
-                                            90%.
-                                        </li>
-                                        <li>
-                                            Simulated implementation of 10 data consistency models resulting in a realistic and reliable
-                                            comparative analysis between them.
-                                        </li>
-                                        <li>
-                                            Published and presented a paper on INForum 2022 explaining the inner functioning of the developed
-                                            solution.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
-
-                    {/* Education */}
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Education</CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-6">
-                            {/* M.Sc. */}
-                            <div className="space-y-2">
-                                <div className="flex items-center justify-between">
-                                    <h3 className="font-semibold">M.Sc. in Computer Science and Engineering</h3>
-                                    <div className="text-sm text-muted-foreground">Sept. 2022 - Now</div>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <span className="font-medium">SST-UNL (NOVA School of Science and Technology)</span>
-                                    <Badge variant="secondary">Lisbon, Portugal</Badge>
-                                </div>
-                                <ul className="ml-4 list-disc text-sm text-muted-foreground">
-                                    <li>Major in Distributed and Parallel Systems.</li>
-                                    <li>Minor in Algorithms and Programming Languages Design.</li>
-                                </ul>
-                            </div>
-
-                            {/* BSc */}
-                            <div className="space-y-2">
-                                <div className="flex items-center justify-between">
-                                    <h3 className="font-semibold">B.Sc. in Computer Science and Engineering</h3>
-                                    <div className="text-sm text-muted-foreground">Sept. 2019 - Aug. 2022</div>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <span className="font-medium">SST-UNL (NOVA School of Science and Technology)</span>
-                                    <Badge variant="secondary">Lisbon, Portugal</Badge>
-                                </div>
-                                <p className="text-sm text-muted-foreground">
-                                    Research project that lead to the publishing of a Scientific Paper in a national conference in the end
-                                    of the BSc.
-                                </p>
-                            </div>
-
-                            {/* TU Dresden */}
-                            <div className="space-y-2">
-                                <div className="flex items-center justify-between">
-                                    <h3 className="font-semibold">Erasmus+ Programme in Computer Science and Engineering</h3>
-                                    <div className="text-sm text-muted-foreground">April 2023 - August 2023</div>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <span className="font-medium">TU Dresden</span>
-                                    <Badge variant="secondary">Dresden, Germany</Badge>
-                                </div>
-                                <ul className="ml-4 list-disc text-sm text-muted-foreground">
-                                    <li>Scholarship-backed exchange programme.</li>
-                                    <li>Focus on Distributed Systems, Parallel Computing and Systems Dependability.</li>
-                                </ul>
-                            </div>
-                        </CardContent>
-                    </Card>
-
-                    {/* Presentations */}
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Presentations</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="space-y-2">
-                                <div className="flex items-center justify-between">
-                                    <h3 className="font-semibold">Scientific Paper on Causal Consistency Simulation</h3>
-                                    <div className="text-sm text-muted-foreground">Sept. 2022</div>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <span className="font-medium">INForum</span>
-                                    <Badge variant="secondary">Guarda, Portugal</Badge>
-                                </div>
-                                <p className="text-sm text-muted-foreground">
-                                    Scientific paper presentation on Accurate Simulation of Causal Consistency Replication protocols.
-                                </p>
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div>
-
-                {/* Technical Skills Sidebar */}
-                <div className="lg:w-1/4">
-                    <TechnicalSkills />
-                </div>
-            </div>
-        </div>
-    )
+interface Role {
+  title: string;
+  period: string;
+  description: React.ReactNode;
 }
 
+interface ResumeCardProps {
+  logoUrl: string;
+  altText: string;
+  title: string;
+  subtitle?: string;
+  href?: string;
+  badges?: readonly string[];
+  period: string;
+  description?: React.ReactNode;
+  roles?: Role[];
+}
+
+const ResumeCard = ({
+  logoUrl,
+  altText,
+  title,
+  subtitle,
+  href,
+  period,
+  description,
+  roles,
+}: ResumeCardProps) => {
+  const [isExpanded, setIsExpanded] = React.useState(false);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    if (description || roles) {
+      e.preventDefault();
+      setIsExpanded(!isExpanded);
+    }
+  };
+
+  return (
+    <Link
+      href={href || "#"}
+      className="block w-full cursor-pointer group relative"
+      onClick={handleClick}
+    >
+      <div className="py-4 last:border-b-0">
+        <div className="flex items-center">
+          <div className="w-12 flex-none">
+            <Avatar className="w-12 h-12 rounded-[1rem]">
+              <AvatarImage src={logoUrl} alt={altText} className="object-contain" />
+              <AvatarFallback>{altText[0]}</AvatarFallback>
+            </Avatar>
+          </div>
+          <div className="flex-grow ml-4">
+            <CardHeader className="space-y-0 p-0">
+              <div className="flex items-center justify-between gap-x-2 text-base">
+                <h3 className="flex items-center font-semibold leading-none text-xs sm:text-sm">
+                  {title}
+                  <ChevronRightIcon
+                    className={cn(
+                      "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
+                      isExpanded ? "rotate-90" : "rotate-0"
+                    )}
+                  />
+                </h3>
+                <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">
+                  {period}
+                </div>
+              </div>
+              {subtitle && <div className="font-sans text-white/85 text-xs mt-0.5">{subtitle}</div>}
+            </CardHeader>
+          </div>
+        </div>
+        {(description || roles) && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{
+              opacity: isExpanded ? 1 : 0,
+              height: isExpanded ? "auto" : 0,
+            }}
+            transition={{
+              duration: 0.7,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="ml-16 mt-2 text-xs sm:text-sm"
+          >
+            {roles && (
+              <div>
+                {roles.map((role, index) => (
+                  <div key={index} className={index < roles.length - 1 ? "mb-4" : ""}>
+                    {index > 0 && (
+                      <div className="flex items-center justify-between">
+                        <h4 className="font-sans text-white/85 text-xs mt-0.5">{role.title}</h4>
+                        <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">
+                          {role.period}
+                        </div>
+                      </div>
+                    )}
+                    <div>{role.description}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+            {description && <div>{description}</div>}
+          </motion.div>
+        )}
+      </div>
+    </Link>
+  );
+};
+
+export default function CVPage() {
+  return (
+    <div className="min-h-screen bg-background p-6 md:p-12">
+      <div className="mx-auto max-w-6xl flex flex-col lg:flex-row gap-8">
+        <div className="lg:w-3/4 space-y-8">
+          {/* Header */}
+          <div className="pl-6 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+            <div>
+              <Image
+                src="/profile.jpeg"
+                alt="António Duarte"
+                width={150}
+                height={150}
+                className="rounded-full"
+              />
+            </div>
+
+            <div className="flex flex-col justify-center items-center sm:items-start">
+              <h1 className="text-4xl font-bold tracking-tight">Hi, I&apos;m António 👋</h1>
+              <p className="text-xl text-white/70 mb-4">Software Engineer</p>
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4" />
+                  <span>antonionpnduarte@gmail.com</span>
+                </div>
+                <Link
+                  href="https://github.com/antonionduarte"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-foreground transition-colors"
+                >
+                  <Github className="h-4 w-4" />
+                  <span>antonioduarte</span>
+                </Link>
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  <span>Lisbon, Portugal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Summary */}
+          <Card className="group">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <FileText />
+                Summary
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4 transition-transform duration-300 ease-in-out transform group-hover:translate-x-2">
+                <p className="text-white/70">
+                  Hey all, I&#39;m a 23-year-old Software Engineer @ Paddle specialized in Distributed &amp; Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.
+                </p>
+                <p className="text-white/70">
+                  I&#39;m very interested in Distributed Systems (although I enjoy keeping myself updated in most areas related to CS, from Programming Languages to Machine Learning), and as
+                  such my career so far has been focused around Backend &amp; Data Engineering.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Work Experience */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Briefcase />
+                Work Experience
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-1">
+              <ResumeCard
+                logoUrl="/paddle_logo.svg"
+                altText="Paddle"
+                title="Paddle"
+                subtitle="Junior Software Engineer"
+                period="January 2024 - Now"
+                description={
+                  <ul className="ml-4 list-disc text-sm text-white/70">
+                    <li>Maintenance and Development of a Data Processing Pipeline in Python.</li>
+                    <li>Distributed Service Deployment and Monitoring using Kubernetes and ElasticStack.</li>
+                  </ul>
+                }
+              />
+              <ResumeCard
+                logoUrl="/aptoide_logo.svg"
+                altText="Aptoide"
+                title="Aptoide"
+                subtitle="Backend Engineer"
+                period="December 2023 - December 2024"
+                description={
+                  <ul className="ml-4 list-disc text-sm text-white/70">
+                    <li>Development of Backend Services using Rust (actix-web) and Python (Django, Flask and FastAPI).</li>
+                    <li>Distributed Deployment and Monitoring of Microservices using Docker, PostgresSQL, Redis and ElasticSearch.</li>
+                    <li>Developed Aptoide&apos;s performance-critical Mobile Measurement Platform in Rust.</li>
+                  </ul>
+                }
+              />
+              <ResumeCard
+                logoUrl="/gr_logo.svg"
+                altText="Generation Resonance"
+                title="Generation Resonance"
+                subtitle="Department Head"
+                period="May 2024 - January 2025"
+                roles={[
+                  {
+                    title: "Department Head",
+                    period: "May 2024 - January 2025",
+                    description: (
+                      <ul className="ml-4 list-disc text-sm text-white/70">
+                        <li>Management of the Technology and Innovation team at Generation Resonance, a United Nations Association Portugal associated Youth NGO, delegating tasks, organizing and distributing work through the team.</li>
+                      </ul>
+                    ),
+                  },
+                  {
+                    title: "Web Developer",
+                    period: "January 2023 - April 2024",
+                    description: (
+                      <ul className="ml-4 list-disc text-sm text-white/70">
+                        <li>Development of the NGO&apos;s website, blog and backend services, using Next.js, Strapi and TailwindCSS, to manage the organization&apos;s activities and projects.</li>
+                      </ul>
+                    ),
+                  },
+                ]}
+              />
+              <ResumeCard
+                logoUrl="/nova_lincs.png"
+                altText="NOVA Lincs"
+                title="NOVA Lincs (Laboratory for Computer Science and Informatics)"
+                subtitle="Undergraduate Researcher"
+                period="March 2022 - September 2022"
+                description={
+                  <ul className="ml-4 list-disc text-sm text-white/70">
+                    <li>Work in enhancing a distributed systems simulator to achieve realistic throughput and latency metrics for consistency model simulations, achieved an accuracy relative to real code execution of 90%.</li>
+                    <li>Simulated implementation of 10 data consistency models resulting in a realistic and reliable comparative analysis between them.</li>
+                    <li>Published and presented a paper on INForum 2022 explaining the inner functioning of the developed solution.</li>
+                  </ul>
+                }
+              />
+            </CardContent>
+          </Card>
+
+          {/* Education */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <BookOpen />
+                Education
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {/* M.Sc. */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-semibold">M.Sc. in Computer Science and Engineering</h3>
+                  <div className="text-sm text-muted-foreground">Sept. 2022 - Now</div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">SST-UNL (NOVA School of Science and Technology)</span>
+                  <Badge variant="secondary">Lisbon, Portugal</Badge>
+                </div>
+                <ul className="ml-4 list-disc text-sm text-white/70">
+                  <li>Major in Distributed and Parallel Systems.</li>
+                  <li>Minor in Algorithms and Programming Languages Design.</li>
+                </ul>
+              </div>
+
+              {/* BSc */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-semibold">B.Sc. in Computer Science and Engineering</h3>
+                  <div className="text-sm text-muted-foreground">Sept. 2019 - Aug. 2022</div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">SST-UNL (NOVA School of Science and Technology)</span>
+                  <Badge variant="secondary">Lisbon, Portugal</Badge>
+                </div>
+                <p className="text-sm text-white/70">
+                  Research project that lead to the publishing of a Scientific Paper in a national conference in the end
+                  of the BSc.
+                </p>
+              </div>
+
+              {/* TU Dresden */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-semibold">Erasmus+ Programme in Computer Science and Engineering</h3>
+                  <div className="text-sm text-muted-foreground">April 2023 - August 2023</div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">TU Dresden</span>
+                  <Badge variant="secondary">Dresden, Germany</Badge>
+                </div>
+                <ul className="ml-4 list-disc text-sm text-white/70">
+                  <li>Scholarship-backed exchange programme.</li>
+                  <li>Focus on Distributed Systems, Parallel Computing and Systems Dependability.</li>
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Presentations */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Presentation />
+                Presentations
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-semibold">Scientific Paper on Causal Consistency Simulation</h3>
+                  <div className="text-sm text-muted-foreground">Sept. 2022</div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">INForum</span>
+                  <Badge variant="secondary">Guarda, Portugal</Badge>
+                </div>
+                <p className="text-sm text-white/70">
+                  Scientific paper presentation on Accurate Simulation of Causal Consistency Replication protocols.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Technical Skills Sidebar */}
+        <div className="lg:w-1/4">
+          <TechnicalSkills />
+        </div>
+      </div>
+    </div>
+  );
+}

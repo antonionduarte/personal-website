@@ -12,6 +12,8 @@ const skills = [
   "JavaScript",
   "TypeScript",
   "React",
+  "TailwindCSS",
+  "PostgresSQL", "MySQL", "SQlite", "Redis",
   "Node.js",
   "Docker",
   "Kubernetes",
@@ -19,6 +21,10 @@ const skills = [
   "Distributed Systems",
   "Microservices",
   "CI/CD",
+  "Git",
+  "RESTful APIs",
+  "Network Security",
+  "Java 🤢"
 ]
 
 export default function Home() {
@@ -27,7 +33,7 @@ export default function Home() {
       <div className="grid grid-cols-1 gap-6">
         {/* Banner */}
         <BentoCard className="col-span-full" noPadding>
-          <BackgroundBeamsWithCollision className="relative min-h-[400px] md:h-[400px] overflow-hidden rounded-lg bg-gradient-to-br from-purple-700 via-blue-600 to-cyan-500">
+          <BackgroundBeamsWithCollision className="relative min-h-[500px] md:max-h-[400px] lg:max-h-[400px] md:min-h-[400px] lg:min-h-[400px] overflow-hidden rounded-lg bg-gradient-to-br from-purple-700 via-blue-600 to-cyan-500">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="p-6 md:p-10 flex flex-col md:flex-row items-center md:items-center gap-6 text-white">
                 <Image
@@ -35,8 +41,7 @@ export default function Home() {
                   alt="António Duarte"
                   width={150}
                   height={150}
-                  className="rounded-[1rem] border-4 border-white w-32 h-32 md:w-[150px] md:h-[150px]"
-                />
+                  className="rounded-[1rem] border-4 border-white w-32 h-32 md:w-[150px] md:h-[150px] transition-transform duration-300 ease-in-out transform hover:-rotate-3"                />
                 <div className="text-center md:text-left">
                   <h1 className="text-3xl md:text-4xl font-bold mb-2">António Duarte</h1>
                   <p className="text-xl mb-4">Software Engineer @ Paddle | Distributed and Parallel Systems </p>
@@ -65,7 +70,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            </ BackgroundBeamsWithCollision>
+            </BackgroundBeamsWithCollision>
         </BentoCard>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -75,8 +80,10 @@ export default function Home() {
               <p className="text-muted-foreground">
                 Hey all, I&apos;m a 23-year-old Software Engineer specialized in Distributed & Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.
               </p>
+
               <p className="text-muted-foreground">
-                I&apos;m very interested in Distributed Systems, Parallel Computing and High Performance Computing (although I honestly enjoy keeping myself updated in most areas related to CS, from Programming Languages to Machine Learning), and as such my career so far has been focused around Backend & Data Engineering.
+                I tell this story in interviews and usually people find it funny: originally, when I was 6, I watched Indiana Jones and decided I wanted to be an Archaeologist. Then, when I was 11, I realized that most Archaeologists don&apos;t get to shoot nazis and explore ancient ruins while wearing cool hats. When I realized, however,
+                that with the right mods I could do all that in Minecraft, I decided to become a Software Engineer instead. And here we are.
               </p>
             </div>
           </BentoCard>
