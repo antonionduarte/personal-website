@@ -135,14 +135,14 @@ export default function CVPage() {
       <div className="mx-auto max-w-6xl flex flex-col lg:flex-row gap-8">
         <div className="lg:w-3/4 space-y-8">
           {/* Header */}
-          <div className="pl-6 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+          <div className="md:pl-6 lg:pl-6 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
             <div>
               <Image
                 src="/profile.jpeg"
                 alt="António Duarte"
                 width={150}
                 height={150}
-                className="rounded-full"
+                className="rounded-full transition-transform duration-300 ease-in-out transform hover:-rotate-3"
               />
             </div>
 

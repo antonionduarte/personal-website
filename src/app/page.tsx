@@ -42,7 +42,7 @@ export default function Home() {
                   alt="António Duarte"
                   width={150}
                   height={150}
-                  className="rounded-[1rem] border-4 border-white w-32 h-32 md:w-[150px] md:h-[150px] transition-transform duration-300 ease-in-out transform hover:-rotate-3"                />
+                  className="rounded-[1rem] border-4 border-white w-32 h-32 md:w-[150px] md:h-[150px] transition-transform duration-300 ease-in-out transform hover:-rotate-3"/>
                 <div className="text-center md:text-left">
                   <h1 className="text-3xl md:text-4xl font-bold mb-2"><HyperText>António Duarte</HyperText></h1>
                   <p className="text-xl mb-4">Software Engineer @ Paddle | Distributed and Parallel Systems </p>
