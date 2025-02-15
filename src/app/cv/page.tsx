@@ -36,6 +36,7 @@ interface ResumeCardProps {
   period: string;
   description?: React.ReactNode;
   roles?: Role[];
+  className?: string;
 }
 
 const ResumeCard = ({
@@ -47,6 +48,7 @@ const ResumeCard = ({
   period,
   description,
   roles,
+  className,
 }: ResumeCardProps) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
@@ -60,10 +62,10 @@ const ResumeCard = ({
   return (
     <Link
       href={href || "#"}
-      className="block w-full cursor-pointer group relative"
+      className={`block w-full cursor-pointer group relative`} // Add className here
       onClick={handleClick}
     >
-      <div className="py-4 last:border-b-0">
+      <div className={`${className} py-4 last:border-b-0`}>
         <div className="flex items-center">
           <div className="w-12 flex-none">
             <Avatar className="w-12 h-12 rounded-[1rem]">
@@ -202,6 +204,7 @@ export default function CVPage() {
             </CardHeader>
             <CardContent className="space-y-1">
               <ResumeCard
+                className="pt-0"
                 logoUrl="/paddle_logo.svg"
                 altText="Paddle"
                 title="Paddle"
@@ -256,6 +259,7 @@ export default function CVPage() {
                 ]}
               />
               <ResumeCard
+                className="pb-0"
                 logoUrl="/nova_lincs.png"
                 altText="NOVA Lincs"
                 title="NOVA Lincs (Laboratory for Computer Science and Informatics)"
