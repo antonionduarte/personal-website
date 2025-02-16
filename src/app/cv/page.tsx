@@ -133,7 +133,7 @@ const ResumeCard = ({
 
 export default function CVPage() {
   return (
-    <div className="min-h-screen bg-background p-6 md:p-12">
+    <div className="min-h-screen bg-background p-8">
       <div className="mx-auto max-w-6xl flex flex-col lg:flex-row gap-8">
         <div className="lg:w-3/4 space-y-8">
           {/* Header */}

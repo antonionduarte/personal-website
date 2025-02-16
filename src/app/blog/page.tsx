@@ -16,26 +16,25 @@ const blogPosts = [
 
 export default function BlogIndex() {
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-8">Blog</h1>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {blogPosts.map((post) => (
-          <Card key={post.id}>
-            <CardHeader>
-              <CardTitle>
-                <Link href={`/blog/${post.slug}`} className="hover:underline">
+          <Link key={post.id} href={`/blog/${post.slug}`}>
+            <Card className="group">
+              <CardHeader>
+                <CardTitle>
                   {post.title}
-                </Link>
-              </CardTitle>
-              <CardDescription>{post.date}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">{post.description}</p>
-            </CardContent>
-          </Card>
+                </CardTitle>
+                <CardDescription>{post.date}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground transition-transform duration-300 ease-in-out transform group-hover:translate-x-2">{post.description}</p>
+              </CardContent>
+            </Card>
+          </Link>
         ))}
       </div>
     </div>
   )
 }
-
