@@ -12,7 +12,7 @@ export default function SchemaScript() {
       "@type": "Organization",
       "name": "Paddle"
     },
-    "url": "https://www.antonionduarte.dev",
+    "url": "https://antonionduarte.dev",
     "sameAs": [
       "https://www.linkedin.com/in/antonionduarte",
       "https://github.com/antonionduarte"

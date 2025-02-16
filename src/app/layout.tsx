@@ -13,7 +13,7 @@ export const metadata = {
   title: "António Duarte",
   description:
     "Software Engineer @ Paddle | Distributed and Parallel Systems. Software Engineer specialized in Distributed Systems and Parallel Computing.",
-  metadataBase: new URL("https://www.antonionduarte.dev"),
+  metadataBase: new URL("https://antonionduarte.dev"),
   alternates: {
     canonical: "/",
   },
@@ -21,7 +21,7 @@ export const metadata = {
     title: "António Duarte",
     description:
       "Software Engineer @ Paddle | Distributed and Parallel Systems. Software Engineer specialized in Distributed Systems and Parallel Computing.",
-    url: "https://www.antonionduarte.dev",
+    url: "https://antonionduarte.dev",
     type: "profile",
     profile: {
       firstName: "António",
