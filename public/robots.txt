@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://antonionduarte.dev
+
+# Sitemaps
+Sitemap: https://antonionduarte.dev/sitemap.xml
