@@ -111,7 +111,7 @@ export default function Home() {
             <div className="flex justify-between items-center">
               <Badge>Blog Post</Badge>
               <Button asChild variant="ghost" size="sm" className="group-hover:text-primary transition-colors">
-                <Link href="/blog/understanding-distributed-systems">
+                <Link href="/blog/coming-soon">
                   Read More
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </Link>

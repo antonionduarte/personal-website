@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## TODO List:
+
+- [ ] Next.js sometimes takes a while to load the images (or Vercel takes a while to serve them) - perhaps consider adding loading skeletons?
+- [ ] Blog:
+    - [ ] I like Notion's sidebar, add it to each article
+
 ## Getting Started
 
 First, run the development server:
