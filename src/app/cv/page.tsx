@@ -226,7 +226,7 @@ export default function CVPage() {
                 description={
                   <ul className="ml-4 list-disc text-sm text-white/70">
                     <li>Development of Backend Services using Rust (actix-web) and Python (Django, Flask and FastAPI).</li>
-                    <li>Distributed Deployment and Monitoring of Microservices using Docker, PostgresSQL, Redis and ElasticSearch.</li>
+                    <li>Distributed Deployment and Monitoring of Microservices using Docker, PostgreSQL, Redis and Elasticsearch.</li>
                     <li>Developed Aptoide&apos;s performance-critical Mobile Measurement Platform in Rust.</li>
                   </ul>
                 }

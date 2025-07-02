@@ -5,7 +5,7 @@ import { Cpu } from "lucide-react"
 const skills = [
     { category: "Programming Languages", items: ["Python", "Rust", "Go", "JavaScript", "TypeScript", "Java 🤢"] },
     { category: "Web Technologies", items: ["React", "Next.js", "Node.js", "HTML", "CSS", "TailwindCSS"] },
-    { category: "Databases", items: ["PostgresSQL", "MySQL", "SQlite", "MongoDB", "Redis", "ElasticSearch"] },
+    { category: "Databases", items: ["PostgreSQL", "MySQL", "SQLite", "MongoDB", "Redis", "Elasticsearch"] },
     { category: "DevOps & Tools", items: ["Docker", "Kubernetes", "Git", "CI/CD", "Linux", "Bash"] },
     {
         category: "Concepts",
