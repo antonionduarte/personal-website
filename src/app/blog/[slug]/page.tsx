@@ -2,7 +2,7 @@ import { notFound } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 interface BlogPostPageProps {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }
 
 // TODO: make this import data from a CMS
@@ -15,7 +15,7 @@ const blogPosts = {
 }
 
 export default async function BlogPost({ params }: BlogPostPageProps) {
-  const { slug } = await params;
+  const { slug } = params;
   const post = blogPosts[slug as keyof typeof blogPosts]
 
   if (!post) {
