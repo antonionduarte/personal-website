@@ -14,7 +14,7 @@ const skills = [
   "TypeScript",
   "React",
   "TailwindCSS",
-  "PostgresSQL", "MySQL", "SQlite", "Redis",
+  "PostgreSQL", "MySQL", "SQLite", "Redis",
   "Node.js",
   "Docker",
   "Kubernetes",
