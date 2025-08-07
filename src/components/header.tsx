@@ -4,10 +4,12 @@ import { AuroraText } from "@/components/magicui/aurora-text";
 
 export default function Header() {
   return (
-    <header className="border-b">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold tracking-tighter">
-          <AuroraText>AD</AuroraText>
+    <header className="sticky top-0 z-50 border-b bg-background/60 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="mx-auto max-w-6xl px-4 py-3 flex justify-between items-center">
+        <Link href="/" className="text-2xl font-bold tracking-tighter inline-flex items-center rounded-md px-2 py-1 bg-background/50 backdrop-blur overflow-hidden isolate supports-[backdrop-filter]:bg-background/50">
+          <AuroraText className="relative z-10" disableEffects>
+            AD
+          </AuroraText>
         </Link>
         <nav>
           <ul className="flex space-x-2">

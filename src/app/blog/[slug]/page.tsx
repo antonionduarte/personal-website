@@ -23,7 +23,7 @@ export default async function BlogPost({ params }: BlogPostPageProps) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="py-16">
       <Card>
         <CardHeader>
           <CardTitle className="text-3xl">{post.title}</CardTitle>

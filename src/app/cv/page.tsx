@@ -32,8 +32,7 @@ interface ResumeCardProps {
   title: string;
   subtitle?: string;
   href?: string;
-  badges?: readonly string[];
-  period: string;
+  period?: string;
   description?: React.ReactNode;
   roles?: Role[];
   className?: string;
@@ -93,37 +92,22 @@ const ResumeCard = ({
             </CardHeader>
           </div>
         </div>
-        {(description || roles) && (
+        {isExpanded && (description || roles) && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{
-              opacity: isExpanded ? 1 : 0,
-              height: isExpanded ? "auto" : 0,
-            }}
-            transition={{
-              duration: 0.7,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-            className="ml-16 mt-2 text-xs sm:text-sm"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="overflow-hidden mt-4 text-sm text-muted-foreground"
           >
+            {description}
             {roles && (
-              <div>
+              <ul className="mt-2 space-y-1 list-disc list-inside">
                 {roles.map((role, index) => (
-                  <div key={index} className={index < roles.length - 1 ? "mb-4" : ""}>
-                    {index > 0 && (
-                      <div className="flex items-center justify-between">
-                        <h4 className="font-sans text-white/85 text-xs mt-0.5">{role.title}</h4>
-                        <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">
-                          {role.period}
-                        </div>
-                      </div>
-                    )}
-                    <div>{role.description}</div>
-                  </div>
+                  <li key={index}>{role.title} — {role.period}</li>
                 ))}
-              </div>
+              </ul>
             )}
-            {description && <div>{description}</div>}
           </motion.div>
         )}
       </div>
@@ -133,11 +117,11 @@ const ResumeCard = ({
 
 export default function CVPage() {
   return (
-    <div className="min-h-screen bg-background p-8">
+    <div className="min-h-screen bg-background py-8">
       <div className="mx-auto max-w-6xl flex flex-col lg:flex-row gap-8">
         <div className="lg:w-3/4 space-y-8">
           {/* Header */}
-          <div className="md:pl-6 lg:pl-6 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
             <div>
               <Image
                 src="/profile.jpeg"

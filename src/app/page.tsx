@@ -30,7 +30,7 @@ const skills = [
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="py-8">
       <div className="grid grid-cols-1 gap-6">
         {/* Banner */}
         <BentoCard className="col-span-full" noPadding>
