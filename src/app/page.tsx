@@ -79,7 +79,7 @@ export default function Home() {
           <BentoCard animated={true} title="About Me" icon={<User className="w-4 h-4" />} className="md:col-span-2">
             <div className="space-y-4">
               <p className="text-muted-foreground">
-                Hey all, I&apos;m a 23-year-old Software Engineer specialized in Distributed & Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.
+                Hey all, I&apos;m a 24-year-old Software Engineer specialized in Distributed & Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.
               </p>
 
               <p className="text-muted-foreground">

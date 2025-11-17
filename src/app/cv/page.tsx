@@ -102,11 +102,18 @@ const ResumeCard = ({
           >
             {description}
             {roles && (
-              <ul className="mt-2 space-y-1 list-disc list-inside">
+              <div className="mt-2 space-y-4">
                 {roles.map((role, index) => (
-                  <li key={index}>{role.title} — {role.period}</li>
+                  <div key={index}>
+                    <div className="font-semibold text-white/85">
+                      {role.title} — {role.period}
+                    </div>
+                    {role.description && (
+                      <div className="mt-1">{role.description}</div>
+                    )}
+                  </div>
                 ))}
-              </ul>
+              </div>
             )}
           </motion.div>
         )}
@@ -168,7 +175,7 @@ export default function CVPage() {
             <CardContent>
               <div className="space-y-4 transition-transform duration-300 ease-in-out transform group-hover:translate-x-2">
                 <p className="text-white/70">
-                  Hey all, I&#39;m a 23-year-old Software Engineer @ Paddle specialized in Distributed &amp; Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.
+                  Hey all, I&#39;m a 24-year-old Software Engineer @ Paddle specialized in Distributed &amp; Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.
                 </p>
                 <p className="text-white/70">
                   I&#39;m very interested in Distributed Systems (although I enjoy keeping myself updated in most areas related to CS, from Programming Languages to Machine Learning), and as
