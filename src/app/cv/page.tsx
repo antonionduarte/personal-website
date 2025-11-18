@@ -131,7 +131,7 @@ export default function CVPage() {
           <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
             <div>
               <Image
-                src="/profile.jpeg"
+                src="/profile-1.jpeg"
                 alt="António Duarte"
                 width={150}
                 height={150}
