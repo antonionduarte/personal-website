@@ -1,12 +1,11 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion, MotionProps } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 type CharacterSet = string[] | readonly string[];
 
-interface HyperTextProps extends MotionProps {
+interface HyperTextProps extends React.HTMLAttributes<HTMLDivElement> {
   /** The text content to be animated */
   children: string;
   /** Optional className for styling */
@@ -15,8 +14,6 @@ interface HyperTextProps extends MotionProps {
   duration?: number;
   /** Delay before animation starts in milliseconds */
   delay?: number;
-  /** Component to render as - defaults to div */
-  as?: React.ElementType;
   /** Whether to start animation when element comes into view */
   startOnView?: boolean;
   /** Whether to trigger animation on hover */
@@ -36,23 +33,18 @@ export function HyperText({
   className,
   duration = 800,
   delay = 0,
-  as: Component = "div",
   startOnView = false,
   animateOnHover = true,
   characterSet = DEFAULT_CHARACTER_SET,
   ...props
 }: HyperTextProps) {
-  const MotionComponent = motion.create(Component, {
-    forwardMotionProps: true,
-  });
-
   const [displayText, setDisplayText] = useState<string[]>(() =>
     children.split(""),
   );
   const [isAnimating, setIsAnimating] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
   const iterationCount = useRef(0);
-  const elementRef = useRef<HTMLElement>(null);
+  const elementRef = useRef<HTMLDivElement>(null);
 
   const handleAnimationTrigger = () => {
     if (animateOnHover && !isAnimating && !hasAnimated) {
@@ -125,23 +117,21 @@ export function HyperText({
   }, [children, duration, isAnimating, characterSet]);
 
   return (
-    <MotionComponent
+    <div
       ref={elementRef}
       className={cn("overflow-hidden font-bold", className)}
       onMouseEnter={handleAnimationTrigger}
       onMouseLeave={handleMouseLeave}
       {...props}
     >
-      <AnimatePresence>
-        {displayText.map((letter, index) => (
-          <motion.span
-            key={index}
-            className={cn("", letter === " " ? "w-3" : "")}
-          >
-            {letter}
-          </motion.span>
-        ))}
-      </AnimatePresence>
-    </MotionComponent>
+      {displayText.map((letter, index) => (
+        <span
+          key={index}
+          className={cn("", letter === " " ? "w-3" : "")}
+        >
+          {letter}
+        </span>
+      ))}
+    </div>
   );
 }
