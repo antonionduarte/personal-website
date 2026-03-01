@@ -72,35 +72,34 @@ export default function Home() {
 
         {/* Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {/* About Me */}
-          <div className="md:col-span-2 rounded-2xl bg-card border border-border/60 p-6 shadow-sm shadow-black/10 hover:shadow-md hover:shadow-black/15 hover:border-border transition-all duration-300">
+          {/* About Me + Skills */}
+          <div className="md:col-span-3 rounded-2xl bg-card border border-border/60 p-6 shadow-sm shadow-black/10 hover:shadow-md hover:shadow-black/15 hover:border-border transition-all duration-300">
             <h2 className="flex items-center gap-2 mb-4 text-sm font-semibold text-foreground" style={{ fontStyle: "normal" }}>
               <User className="w-4 h-4 text-primary" /> About Me
             </h2>
             <div className="space-y-3 text-muted-foreground leading-relaxed" style={{ fontStyle: "normal" }}>
-              <p>Hey all, I&apos;m a 24-year-old Software Engineer specialized in Distributed &amp; Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.</p>
-              <p>I tell this story in interviews and usually people find it funny: originally, when I was 6, I watched Indiana Jones and decided I wanted to be an Archaeologist. Then, when I was 11, I realized that most Archaeologists don&apos;t get to shoot nazis and explore ancient ruins while wearing cool hats. When I realized, however, that with the right mods I could do all that in Minecraft, I decided to become a Software Engineer instead. And here we are.</p>
+              <p>Hey, I&apos;m Ant&oacute;nio - a Software Engineer drawn to hard problems in distributed systems: how machines agree on truth, how data stays consistent at scale, and how to make all of it fast.</p>
+              <p>When I was 6, I watched Indiana Jones and decided I wanted to be an Archaeologist. At 11, I realized most Archaeologists don&apos;t get to shoot nazis and explore ancient ruins while wearing cool hats. When I discovered that with the right mods I could do all that in Minecraft, I became a Software Engineer instead. And here we are - building systems that don&apos;t fall apart when things go wrong.</p>
+              <p>Outside of work, I still dig into consistency models and replication protocols for fun. I also have a soft spot for programming language design - there&apos;s something satisfying about building the tools that build the tools.</p>
+            </div>
+            <div className="border-t border-border/60 mt-5 pt-5">
+              <h2 className="flex items-center gap-2 mb-3 text-sm font-semibold text-foreground" style={{ fontStyle: "normal" }}>
+                <Cpu className="w-4 h-4 text-primary" /> Skills
+              </h2>
+              <div className="flex flex-wrap gap-1.5">
+                {primarySkills.map((skill) => (
+                  <Badge key={skill} variant="secondary" className="text-sm bg-primary/15 text-primary border-primary/20">{skill}</Badge>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-1.5 mt-2">
+                {secondarySkills.map((skill) => (
+                  <Badge key={skill} variant="secondary" className="text-xs">{skill}</Badge>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Skills */}
-          <div className="rounded-2xl bg-card border border-border/60 p-6 shadow-sm shadow-black/10 hover:shadow-md hover:shadow-black/15 hover:border-border transition-all duration-300">
-            <h2 className="flex items-center gap-2 mb-4 text-sm font-semibold text-foreground" style={{ fontStyle: "normal" }}>
-              <Cpu className="w-4 h-4 text-primary" /> Skills
-            </h2>
-            <div className="flex flex-wrap gap-1.5">
-              {primarySkills.map((skill) => (
-                <Badge key={skill} variant="secondary" className="text-sm bg-primary/15 text-primary border-primary/20">{skill}</Badge>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-1.5 mt-2">
-              {secondarySkills.map((skill) => (
-                <Badge key={skill} variant="secondary" className="text-xs">{skill}</Badge>
-              ))}
-            </div>
-          </div>
-
-          {/* Blog Teaser — full width row */}
+          {/* Blog Teaser - full width row */}
           <Link href="/blog" className="group md:col-span-3 rounded-2xl bg-card border border-border/60 p-6 shadow-sm shadow-black/10 hover:shadow-md hover:shadow-black/15 hover:border-primary/30 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all duration-200 block">
             <div className="flex items-center justify-between gap-4" style={{ fontStyle: "normal" }}>
               <div className="flex items-center gap-4">
