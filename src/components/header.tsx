@@ -1,33 +1,17 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { AuroraText } from "@/components/magicui/aurora-text";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/60 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto max-w-6xl px-4 py-3 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold tracking-tighter inline-flex items-center rounded-md px-2 py-1 bg-background/50 backdrop-blur overflow-hidden isolate supports-[backdrop-filter]:bg-background/50">
-          <AuroraText className="relative z-10" disableEffects>
-            AD
-          </AuroraText>
+    <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
+      <div className="mx-auto max-w-4xl px-5 py-4 flex justify-between items-center">
+        <Link href="/" className="text-lg font-semibold tracking-tight text-foreground hover:text-primary active:opacity-70 transition-colors duration-200">
+          António Duarte
         </Link>
         <nav>
-          <ul className="flex space-x-2">
-            <li>
-              <Button variant="ghost" asChild>
-                <Link href="/">Home</Link>
-              </Button>
-            </li>
-            <li>
-              <Button variant="ghost" asChild>
-                <Link href="/blog">Blog</Link>
-              </Button>
-            </li>
-            <li>
-              <Button variant="ghost" asChild>
-                <Link href="/cv">CV</Link>
-              </Button>
-            </li>
+          <ul className="flex gap-5">
+            <li><Link href="/" className="text-sm text-muted-foreground hover:text-primary active:opacity-70 transition-colors duration-200">Home</Link></li>
+            <li><Link href="/blog" className="text-sm text-muted-foreground hover:text-primary active:opacity-70 transition-colors duration-200">Blog</Link></li>
+            <li><Link href="/cv" className="text-sm text-muted-foreground hover:text-primary active:opacity-70 transition-colors duration-200">CV</Link></li>
           </ul>
         </nav>
       </div>
