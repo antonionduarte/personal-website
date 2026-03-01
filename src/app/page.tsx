@@ -6,11 +6,15 @@ import { Github, BookOpen, User, Cpu, ArrowRight } from "lucide-react"
 import PageTransition from "@/components/page-transition"
 import GitHubSection from "@/components/github/github-section"
 
-const skills = [
-  "Rust", "Python", "JavaScript", "TypeScript", "React", "TailwindCSS",
-  "PostgreSQL", "MySQL", "SQLite", "Redis", "Node.js",
-  "Docker", "Kubernetes", "AWS", "Distributed Systems", "Microservices",
-  "CI/CD", "Git", "RESTful APIs", "Network Security", "Java 🤢"
+const primarySkills = [
+  "Distributed Systems", "Microservices", "Go", "Python", "PostgreSQL", "Network Security",
+]
+
+const secondarySkills = [
+  "Rust", "JavaScript", "TypeScript", "React", "TailwindCSS",
+  "MySQL", "SQLite", "Redis", "Node.js",
+  "Docker", "Kubernetes", "AWS",
+  "CI/CD", "Git", "RESTful APIs", "Java 🤢",
 ]
 
 const projects = [
@@ -74,7 +78,7 @@ export default function Home() {
               <User className="w-4 h-4 text-primary" /> About Me
             </h2>
             <div className="space-y-3 text-muted-foreground leading-relaxed" style={{ fontStyle: "normal" }}>
-              <p>Hey all, I&apos;m a 23-year-old Software Engineer specialized in Distributed &amp; Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.</p>
+              <p>Hey all, I&apos;m a 24-year-old Software Engineer specialized in Distributed &amp; Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.</p>
               <p>I tell this story in interviews and usually people find it funny: originally, when I was 6, I watched Indiana Jones and decided I wanted to be an Archaeologist. Then, when I was 11, I realized that most Archaeologists don&apos;t get to shoot nazis and explore ancient ruins while wearing cool hats. When I realized, however, that with the right mods I could do all that in Minecraft, I decided to become a Software Engineer instead. And here we are.</p>
             </div>
           </div>
@@ -85,7 +89,12 @@ export default function Home() {
               <Cpu className="w-4 h-4 text-primary" /> Skills
             </h2>
             <div className="flex flex-wrap gap-1.5">
-              {skills.map((skill) => (
+              {primarySkills.map((skill) => (
+                <Badge key={skill} variant="secondary" className="text-sm bg-primary/15 text-primary border-primary/20">{skill}</Badge>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-1.5 mt-2">
+              {secondarySkills.map((skill) => (
                 <Badge key={skill} variant="secondary" className="text-xs">{skill}</Badge>
               ))}
             </div>

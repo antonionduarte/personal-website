@@ -62,15 +62,15 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: {
-    default: "António Duarte — Software Engineer, Distributed Systems",
-    template: "%s — António Duarte",
+    default: "António Duarte - Software Engineer, Distributed Systems",
+    template: "%s - António Duarte",
   },
   description:
     "Software Engineer @ Paddle specialized in Distributed Systems and Parallel Computing.",
   metadataBase: new URL("https://antonionduarte.dev"),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "António Duarte — Software Engineer, Distributed Systems",
+    title: "António Duarte - Software Engineer, Distributed Systems",
     description: "Software Engineer @ Paddle | Distributed and Parallel Systems.",
     url: "https://antonionduarte.dev",
     type: "profile",
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "António Duarte — Software Engineer, Distributed Systems",
+    title: "António Duarte - Software Engineer, Distributed Systems",
     description: "Software Engineer @ Paddle | Distributed and Parallel Systems.",
     site: "@antonionduarte",
   },

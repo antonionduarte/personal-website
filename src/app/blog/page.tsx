@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Blog posts by António Duarte on distributed systems, software engineering, and technology.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog — António Duarte",
+    title: "Blog - António Duarte",
     description: "Blog posts by António Duarte on distributed systems, software engineering, and technology.",
     url: "https://antonionduarte.dev/blog",
   },

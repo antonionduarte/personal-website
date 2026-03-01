@@ -5,7 +5,7 @@ import { Grid } from "@/components/charts/grid"
 import { ChartTooltip } from "@/components/charts/tooltip/chart-tooltip"
 import { useChart } from "@/components/charts/chart-context"
 import type { YearlyTotal } from "@/lib/github"
-import { useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 
 interface ContributionTrendProps {
@@ -19,11 +19,11 @@ interface Marker {
 }
 
 const LIFE_MARKERS: Marker[] = [
-  { date: new Date("2019-09-01"), icon: "🎓", title: "Started my B.Sc. — time to learn!" },
+  { date: new Date("2019-09-01"), icon: "🎓", title: "Started my B.Sc. - time to learn!" },
   { date: new Date("2022-03-01"), icon: "🔬", title: "Researcher at NOVA LINCS" },
   { date: new Date("2022-09-15"), icon: "🎓", title: "Started my M.Sc." },
-  { date: new Date("2023-04-01"), icon: "🇩🇪", title: "Erasmus in Germany — Prost!" },
-  { date: new Date("2023-12-01"), icon: "📱", title: "Joined Aptoide — Rust goes brr" },
+  { date: new Date("2023-04-01"), icon: "🇩🇪", title: "Erasmus in Germany - Prost!" },
+  { date: new Date("2023-12-01"), icon: "📱", title: "Joined Aptoide - Rust goes brr" },
   { date: new Date("2025-01-01"), icon: "💳", title: "Joined Paddle!" },
 ]
 
@@ -106,7 +106,7 @@ function LifeMarkers({ onHoverChange }: LifeMarkersProps) {
           return v0 + ratio * (v1 - v0)
         }
       }
-      // Before first or after last — clamp
+      // Before first or after last - clamp
       const first = data[0]
       const last = data[data.length - 1]
       if (first && targetTime <= xAccessor(first).getTime()) return (first.contributions as number) ?? 0
@@ -236,8 +236,20 @@ function LifeMarkers({ onHoverChange }: LifeMarkersProps) {
 
 LifeMarkers.displayName = "LifeMarkers"
 
+function useIsMobile(breakpoint = 640) {
+  const [isMobile, setIsMobile] = useState(false)
+  const check = useCallback(() => setIsMobile(window.innerWidth < breakpoint), [breakpoint])
+  useEffect(() => {
+    check()
+    window.addEventListener("resize", check)
+    return () => window.removeEventListener("resize", check)
+  }, [check])
+  return isMobile
+}
+
 export default function ContributionTrend({ totals }: ContributionTrendProps) {
   const [markerHovered, setMarkerHovered] = useState(false)
+  const isMobile = useIsMobile()
 
   const data = totals.map((t) => ({
     date: new Date(`${t.year}-07-01`),
@@ -253,11 +265,14 @@ export default function ContributionTrend({ totals }: ContributionTrendProps) {
       <AreaChart
         data={data}
         xDataKey="date"
-        aspectRatio="3 / 1"
-        margin={{ top: 70, right: 20, bottom: 30, left: 20 }}
+        aspectRatio={isMobile ? "2 / 1" : "3 / 1"}
+        margin={isMobile
+          ? { top: 16, right: 10, bottom: 25, left: 10 }
+          : { top: 70, right: 20, bottom: 30, left: 20 }
+        }
         animationDuration={800}
       >
-        <Grid horizontal numTicksRows={4} strokeDasharray="2,4" />
+        <Grid horizontal numTicksRows={isMobile ? 3 : 4} strokeDasharray="2,4" />
         <Area
           dataKey="contributions"
           fill="hsl(99 26% 59%)"
@@ -267,7 +282,7 @@ export default function ContributionTrend({ totals }: ContributionTrendProps) {
           strokeWidth={2}
         />
         <YearAxis />
-        <LifeMarkers onHoverChange={setMarkerHovered} />
+        {!isMobile && <LifeMarkers onHoverChange={setMarkerHovered} />}
         {!markerHovered && (
           <ChartTooltip
             rows={(point) => [
@@ -280,6 +295,29 @@ export default function ContributionTrend({ totals }: ContributionTrendProps) {
           />
         )}
       </AreaChart>
+
+      {/* Mobile timeline */}
+      {isMobile && (
+        <div className="mt-5 relative ml-4" style={{ fontStyle: "normal" }}>
+          {/* Vertical line */}
+          <div className="absolute left-[15px] top-2 bottom-2 w-px bg-border/60" />
+          <div className="space-y-4">
+            {LIFE_MARKERS.map((marker, idx) => (
+              <div key={idx} className="flex items-start gap-3 relative">
+                <div className="w-8 h-8 rounded-full bg-secondary/80 border border-border/60 flex items-center justify-center text-sm flex-shrink-0 z-10">
+                  {marker.icon}
+                </div>
+                <div className="pt-1">
+                  <p className="text-xs font-medium text-foreground leading-tight">{marker.title}</p>
+                  <p className="text-[10px] text-muted-foreground mt-0.5">
+                    {marker.date.toLocaleDateString("en-US", { month: "short", year: "numeric" })}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

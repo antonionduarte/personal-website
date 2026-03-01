@@ -9,11 +9,11 @@ import PageTransition from "@/components/page-transition"
 
 export const metadata: Metadata = {
   title: "CV",
-  description: "Curriculum Vitae of António Duarte — Software Engineer specialized in Distributed Systems and Parallel Computing. Experience at Paddle, Aptoide, and NOVA Lincs.",
+  description: "Curriculum Vitae of António Duarte - Software Engineer specialized in Distributed Systems and Parallel Computing. Experience at Paddle, Aptoide, and NOVA Lincs.",
   alternates: { canonical: "/cv" },
   openGraph: {
-    title: "CV — António Duarte, Software Engineer",
-    description: "Curriculum Vitae of António Duarte — Software Engineer specialized in Distributed Systems and Parallel Computing.",
+    title: "CV - António Duarte, Software Engineer",
+    description: "Curriculum Vitae of António Duarte - Software Engineer specialized in Distributed Systems and Parallel Computing.",
     url: "https://antonionduarte.dev/cv",
   },
 }
@@ -42,7 +42,7 @@ export default function CVPage() {
         <div className="rounded-2xl bg-card border border-border/60 p-6 shadow-sm shadow-black/10">
           <h2 className="flex items-center gap-2 text-xl mb-4"><FileText className="h-5 w-5 text-primary" /> Summary</h2>
           <div className="space-y-3 text-muted-foreground leading-relaxed" style={{ fontStyle: "normal" }}>
-            <p>23-year-old Software Engineer @ Paddle specialized in Distributed &amp; Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.</p>
+            <p>24-year-old Software Engineer @ Paddle specialized in Distributed &amp; Parallel Systems, that also dabbled very strongly in Algorithms and Programming Language Design.</p>
             <p>Very interested in Distributed Systems (although I enjoy keeping myself updated in most areas related to CS, from Programming Languages to Machine Learning), and as such my career so far has been focused around Backend &amp; Data Engineering.</p>
           </div>
         </div>
@@ -56,7 +56,10 @@ export default function CVPage() {
             <ResumeCard logoUrl="/aptoide_logo.svg" altText="Aptoide" title="Aptoide" subtitle="Backend Engineer" period="Dec 2023 - Dec 2024"
               description={<ul className="ml-4 list-disc space-y-1"><li>Development of Backend Services using Rust (actix-web) and Python (Django, Flask and FastAPI).</li><li>Distributed Deployment and Monitoring of Microservices using Docker, PostgreSQL, Redis and Elasticsearch.</li><li>Developed Aptoide&apos;s performance-critical Mobile Measurement Platform in Rust.</li></ul>} />
             <ResumeCard logoUrl="/gr_logo.svg" altText="Generation Resonance" title="Generation Resonance" subtitle="Department Head" period="May 2024 - Jan 2025"
-              roles={[{ title: "Department Head", period: "June 2024 - January 2025", description: <></> }, { title: "Web Developer", period: "May 2024 - January 2025", description: <></> }]} />
+              roles={[
+                { title: "Department Head", period: "June 2024 - January 2025", description: <ul className="ml-4 list-disc space-y-1"><li>Planned and led the technical roadmap of the project.</li><li>Directed tech-related initiatives, articles, and coverage of technological developments.</li></ul> },
+                { title: "Web Developer", period: "May 2024 - January 2025", description: <ul className="ml-4 list-disc space-y-1"><li>Developed the project&apos;s website, blog, and CMS system using Next.js, TypeScript, and Vercel.</li></ul> },
+              ]} />
             <ResumeCard logoUrl="/nova_lincs.png" altText="NOVA Lincs" title="NOVA Lincs" subtitle="Undergraduate Researcher" period="Mar 2022 - Sep 2022"
               description={<ul className="ml-4 list-disc space-y-1"><li>Enhanced a distributed systems simulator achieving 90% accuracy relative to real code execution.</li><li>Simulated implementation of 10 data consistency models for comparative analysis.</li><li>Published and presented a paper at INForum 2022.</li></ul>} />
           </div>

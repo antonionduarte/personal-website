@@ -71,9 +71,12 @@ export default function ResumeCard({
             >
               {description}
               {roles && (
-                <ul className="mt-2 space-y-1">
+                <ul className="mt-2 space-y-3">
                   {roles.map((role, index) => (
-                    <li key={index}>{role.title} — <span className="text-xs">{role.period}</span></li>
+                    <li key={index}>
+                      <div>{role.title} - <span className="text-xs">{role.period}</span></div>
+                      {role.description && <div className="mt-1">{role.description}</div>}
+                    </li>
                   ))}
                 </ul>
               )}

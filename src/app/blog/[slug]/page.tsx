@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     description: post.description,
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {
-      title: `${post.title} — António Duarte`,
+      title: `${post.title} - António Duarte`,
       description: post.description,
       url: `https://antonionduarte.dev/blog/${slug}`,
       type: "article",
