@@ -75,7 +75,11 @@ function YearAxis() {
 
 YearAxis.displayName = "YearAxis"
 
-function LifeMarkers() {
+interface LifeMarkersProps {
+  onHoverChange?: (hovered: boolean) => void
+}
+
+function LifeMarkers({ onHoverChange }: LifeMarkersProps) {
   const { xScale, yScale, data, margin, containerRef, xAccessor, isLoaded } = useChart()
   const [mounted, setMounted] = useState(false)
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null)
@@ -191,8 +195,8 @@ function LifeMarkers() {
             >
               <div
                 className="relative cursor-default"
-                onMouseEnter={() => setHoveredIdx(idx)}
-                onMouseLeave={() => setHoveredIdx(null)}
+                onMouseEnter={() => { setHoveredIdx(idx); onHoverChange?.(true) }}
+                onMouseLeave={() => { setHoveredIdx(null); onHoverChange?.(false) }}
               >
                 <motion.div
                   className="w-8 h-8 rounded-full bg-secondary/80 border border-border/60 backdrop-blur-sm flex items-center justify-center text-sm select-none shadow-md shadow-black/20"
@@ -233,6 +237,8 @@ function LifeMarkers() {
 LifeMarkers.displayName = "LifeMarkers"
 
 export default function ContributionTrend({ totals }: ContributionTrendProps) {
+  const [markerHovered, setMarkerHovered] = useState(false)
+
   const data = totals.map((t) => ({
     date: new Date(`${t.year}-07-01`),
     contributions: t.contributions,
@@ -261,16 +267,18 @@ export default function ContributionTrend({ totals }: ContributionTrendProps) {
           strokeWidth={2}
         />
         <YearAxis />
-        <LifeMarkers />
-        <ChartTooltip
-          rows={(point) => [
-            {
-              color: "hsl(99 26% 59%)",
-              label: "Contributions",
-              value: point.contributions as number,
-            },
-          ]}
-        />
+        <LifeMarkers onHoverChange={setMarkerHovered} />
+        {!markerHovered && (
+          <ChartTooltip
+            rows={(point) => [
+              {
+                color: "hsl(99 26% 59%)",
+                label: "Contributions",
+                value: point.contributions as number,
+              },
+            ]}
+          />
+        )}
       </AreaChart>
     </div>
   )

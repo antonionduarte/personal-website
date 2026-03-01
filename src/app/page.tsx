@@ -122,18 +122,59 @@ export default function Home() {
         </div>
 
         {/* GitHub Activity */}
-        <Suspense fallback={
-          <div className="space-y-5 animate-pulse">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              <div className="rounded-2xl bg-card border border-border/60 p-6 h-32" />
-              <div className="md:col-span-2 rounded-2xl bg-card border border-border/60 p-6 h-32" />
-            </div>
-            <div className="rounded-2xl bg-card border border-border/60 p-6 h-40" />
-          </div>
-        }>
+        <Suspense fallback={<GitHubSkeleton />}>
           <GitHubSection />
         </Suspense>
       </div>
     </PageTransition>
+  )
+}
+
+function GitHubSkeleton() {
+  return (
+    <div className="space-y-5 animate-pulse">
+      {/* Stats row */}
+      <div className="rounded-2xl bg-card border border-border/60 p-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 md:divide-x md:divide-border/60">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="flex flex-col items-center gap-2 px-3">
+              <div className="h-6 w-12 rounded bg-muted" />
+              <div className="h-3 w-20 rounded bg-muted/60" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Language breakdown */}
+      <div className="rounded-2xl bg-card border border-border/60 p-6">
+        <div className="h-4 w-20 rounded bg-muted mb-4" />
+        <div className="flex h-3 rounded-full overflow-hidden mb-5 gap-px">
+          {[35, 25, 15, 10, 8, 7].map((w, i) => (
+            <div key={i} className="bg-muted" style={{ width: `${w}%` }} />
+          ))}
+        </div>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-muted flex-shrink-0" />
+              <div className="h-3 w-16 rounded bg-muted/60" />
+              <div className="h-3 w-8 rounded bg-muted/40 ml-auto" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Contribution trend chart */}
+      <div className="rounded-2xl bg-card border border-border/60 p-6">
+        <div className="h-4 w-36 rounded bg-muted mb-4" />
+        <div className="w-full rounded bg-muted/30" style={{ aspectRatio: "3 / 1" }} />
+      </div>
+
+      {/* Contribution heatmap */}
+      <div className="rounded-2xl bg-card border border-border/60 p-6">
+        <div className="h-4 w-24 rounded bg-muted mb-4" />
+        <div className="h-[114px] w-full rounded bg-muted/30" />
+      </div>
+    </div>
   )
 }
