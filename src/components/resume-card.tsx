@@ -1,7 +1,7 @@
 "use client"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ChevronRightIcon } from "lucide-react"
+import { ChevronDownIcon, MapPinIcon } from "lucide-react"
 import Link from "next/link"
 import { AnimatePresence, motion } from "motion/react"
 import React from "react"
@@ -9,8 +9,11 @@ import { cn } from "@/lib/utils"
 
 interface Role {
   title: string
+  team?: string
   period: string
-  description: React.ReactNode
+  location?: string
+  bullets?: string[]
+  description?: React.ReactNode
 }
 
 interface ResumeCardProps {
@@ -20,70 +23,168 @@ interface ResumeCardProps {
   subtitle?: string
   href?: string
   period?: string
+  location?: string
+  bullets?: string[]
   description?: React.ReactNode
   roles?: Role[]
+  defaultExpanded?: boolean
 }
 
 export default function ResumeCard({
-  logoUrl, altText, title, subtitle, href, period, description, roles,
+  logoUrl,
+  altText,
+  title,
+  subtitle,
+  href,
+  period,
+  location,
+  bullets,
+  description,
+  roles,
+  defaultExpanded = false,
 }: ResumeCardProps) {
-  const [isExpanded, setIsExpanded] = React.useState(false)
+  const hasDetails = Boolean(description || bullets?.length || roles?.length)
+  const [isExpanded, setIsExpanded] = React.useState(defaultExpanded && hasDetails)
+  const contentId = React.useId()
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    if (description || roles) {
-      e.preventDefault()
-      setIsExpanded(!isExpanded)
+  const header = (
+    <div className="flex w-full items-start gap-4 text-left">
+      <Avatar className="h-11 w-11 flex-shrink-0 rounded-xl">
+        <AvatarImage src={logoUrl} alt={altText} className="object-contain" />
+        <AvatarFallback className="rounded-xl text-xs">{altText[0]}</AvatarFallback>
+      </Avatar>
+      <div className="min-w-0 flex-1">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+          <div className="min-w-0">
+            <h3 className="text-sm font-semibold text-foreground" style={{ fontStyle: "normal" }}>{title}</h3>
+            {subtitle && (
+              <p className="mt-0.5 text-sm text-muted-foreground" style={{ fontStyle: "normal" }}>{subtitle}</p>
+            )}
+          </div>
+          {period && (
+            <span className="shrink-0 text-xs tabular-nums text-muted-foreground sm:text-right">{period}</span>
+          )}
+        </div>
+        {location && (
+          <p className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground" style={{ fontStyle: "normal" }}>
+            <MapPinIcon className="h-3.5 w-3.5" aria-hidden="true" />
+            {location}
+          </p>
+        )}
+      </div>
+      {hasDetails && (
+        <ChevronDownIcon
+          className={cn(
+            "mt-0.5 h-4 w-4 flex-shrink-0 text-muted-foreground transition-transform duration-300 ease-out group-hover:text-primary",
+            isExpanded && "rotate-180"
+          )}
+          aria-hidden="true"
+        />
+      )}
+    </div>
+  )
+
+  const toggleExpanded = () => {
+    if (hasDetails) {
+      setIsExpanded((value) => !value)
     }
   }
 
   return (
-    <Link href={href || "#"} className="block w-full cursor-pointer group" onClick={handleClick}>
-      <div className="py-4">
-        <div className="flex items-center">
-          <Avatar className="w-11 h-11 rounded-xl flex-shrink-0">
-            <AvatarImage src={logoUrl} alt={altText} className="object-contain" />
-            <AvatarFallback className="rounded-xl text-xs">{altText[0]}</AvatarFallback>
-          </Avatar>
-          <div className="flex-grow ml-4 min-w-0">
-            <div className="flex items-center justify-between gap-x-2">
-              <h3 className="flex items-center font-semibold text-sm text-foreground" style={{ fontStyle: "normal" }}>
-                {title}
-                <ChevronRightIcon className={cn(
-                  "size-3.5 ml-1 opacity-0 transition-all duration-300 ease-out group-hover:opacity-100",
-                  isExpanded ? "rotate-90 opacity-100" : "rotate-0"
-                )} />
-              </h3>
-              <span className="text-xs tabular-nums text-muted-foreground text-right flex-shrink-0">{period}</span>
-            </div>
-            {subtitle && <p className="text-sm text-muted-foreground mt-0.5" style={{ fontStyle: "normal" }}>{subtitle}</p>}
-          </div>
-        </div>
-        <AnimatePresence initial={false}>
-          {isExpanded && (description || roles) && (
-            <motion.div
-              key="content"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="overflow-hidden mt-3 ml-[3.75rem] text-sm text-muted-foreground"
-              style={{ fontStyle: "normal" }}
-            >
-              {description}
-              {roles && (
-                <ul className="mt-2 space-y-3">
-                  {roles.map((role, index) => (
-                    <li key={index}>
-                      <div>{role.title} - <span className="text-xs">{role.period}</span></div>
-                      {role.description && <div className="mt-1">{role.description}</div>}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </Link>
+    <article className="group py-5 first:pt-4 last:pb-4">
+      {hasDetails ? (
+        <button
+          type="button"
+          aria-expanded={isExpanded}
+          aria-controls={contentId}
+          onClick={toggleExpanded}
+          className="-m-2 w-[calc(100%+1rem)] rounded-xl p-2 transition-colors duration-200 hover:bg-muted/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          {header}
+        </button>
+      ) : href ? (
+        <Link
+          href={href}
+          className="-m-2 block w-[calc(100%+1rem)] rounded-xl p-2 transition-colors duration-200 hover:bg-muted/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          {header}
+        </Link>
+      ) : (
+        header
+      )}
+
+      <AnimatePresence initial={false}>
+        {isExpanded && hasDetails && (
+          <motion.div
+            id={contentId}
+            key="content"
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-5 overflow-hidden pl-0 text-sm text-muted-foreground sm:pl-[3.75rem]"
+            style={{ fontStyle: "normal" }}
+          >
+            {description}
+            {bullets && <BulletList bullets={bullets} />}
+            {roles && (
+              <ol className="space-y-5">
+                {roles.map((role, index) => (
+                  <li key={`${role.team ?? role.title}-${role.period}`} className="grid grid-cols-[1rem_1fr] gap-4">
+                    <div className="relative flex justify-center" aria-hidden="true">
+                      {index < roles.length - 1 && (
+                        <span className="absolute top-4 h-[calc(100%+1.25rem)] w-px bg-border/80" />
+                      )}
+                      <span
+                        className={cn(
+                          "relative z-10 mt-1 h-3 w-3 rounded-full border bg-card",
+                          index === 0 ? "border-primary shadow-[0_0_0_3px_hsl(var(--primary)/0.12)]" : "border-border"
+                        )}
+                      />
+                    </div>
+                    <div className="min-w-0 pb-1">
+                      <div className="flex flex-col gap-1.5 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                        <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
+                          <h4 className="text-sm font-semibold leading-snug text-foreground">
+                            {role.team ?? role.title}
+                          </h4>
+                          {role.team && (
+                            <span className="text-xs text-muted-foreground">{role.title}</span>
+                          )}
+                          {role.location && (
+                            <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+                              <MapPinIcon className="h-3 w-3" aria-hidden="true" />
+                              {role.location}
+                            </span>
+                          )}
+                        </div>
+                        <span className="shrink-0 text-xs tabular-nums text-muted-foreground sm:text-right">
+                          {role.period}
+                        </span>
+                      </div>
+                      {role.description}
+                      {role.bullets && <BulletList bullets={role.bullets} className="mt-3" />}
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </article>
+  )
+}
+
+function BulletList({ bullets, className }: { bullets: string[], className?: string }) {
+  return (
+    <ul className={cn("space-y-1.5 leading-relaxed", className)}>
+      {bullets.map((bullet) => (
+        <li key={bullet} className="relative pl-4">
+          <span className="absolute left-0 top-[0.72em] h-1 w-1 rounded-full bg-muted-foreground/70" aria-hidden="true" />
+          {bullet}
+        </li>
+      ))}
+    </ul>
   )
 }
