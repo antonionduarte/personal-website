@@ -93,12 +93,12 @@ export const cvData: {
       altText: "Paddle",
       roles: [
         {
-          title: "Junior Software Engineer",
+          title: "Software Engineer",
           team: "Retain Team",
           period: "Feb 2026 - Present",
           location: "Lisbon, Portugal",
           bullets: [
-            "Authored 3 architectural proposals and 2 technical decision records defining the strategy for decoupling a revenue recovery system from a legacy monolith, protecting $1.08M/month in recovered payments across 723 sellers.",
+            "One of the key decision-makers on decoupling Paddle Billing's Retain functionality from a legacy monolith into lean Go microservices, authoring 3 architectural proposals and 2 technical decision records that defined the strategy and protected $1.08M/month in recovered payments across 723 sellers.",
             "Built a Go dunning microservice from zero to production, replacing a batch-based Python/Django system with an event-driven architecture using EventBridge and SQS.",
             "Eliminated a critical dependency between payment recovery and the data pipeline that had previously caused a 37% drop in daily recovered payments during an infrastructure outage, from 272 to 171 payments/day.",
             "Delivered 50+ PRs across 2 new services, owning application code in Go, Terraform/ECS infrastructure, event pipelines, auth configuration, API gateway routing, and BDD test suites.",
@@ -113,18 +113,17 @@ export const cvData: {
             "Maintained and extended a data-intensive MRR processing pipeline in Python/Django, powering recurring revenue analytics for thousands of SaaS companies.",
             "Overhauled internal migration tooling for onboarding payment providers by unifying candidate selection across integrations, automating data migration, and adding comprehensive test coverage.",
             "Built pipeline observability infrastructure spanning metric alerting, operational dashboards, database connection resilience, stale-data detection, and checkpoint optimizations for billing data generation.",
-            "Led authoring and implementation of a technical decision record addressing critical security risks in external integration authentication, aligning the system with security best practices.",
+            "Led authoring and implementation of a technical decision record addressing critical security risks in external integration authentication, an architectural change spanning 40,000+ sellers using ProfitWell that aligned the system with security best practices.",
             "Delivered 80+ PRs and resolved 30+ issues spanning reliability improvements, feature development, production investigations, and large-scale schema migrations.",
           ],
         },
         {
-          title: "Junior Software Engineer",
+          title: "Software Engineer",
           team: "Cross-Organization Initiatives",
           period: "2025 - Present",
           location: "Lisbon, Portugal",
           bullets: [
-            "Authored decision records and custom agentic-skill initiatives for safe broad agentic development at Paddle.",
-            "Developed global skills that encode Paddle architectural standards and internal library conventions for code implementation and reviews across the engineering ecosystem.",
+            "Authored decision records and developed global agentic skills encoding Paddle's architectural standards and internal library conventions, enabling safe, broad agentic development for code implementation and reviews across the engineering ecosystem.",
             "Authored the decision record for introducing Profile-Guided Optimization across the Go service fleet and built an MVP CI workflow for automated weekly CPU profile collection.",
             "Coordinated with security to unblock infrastructure access and designed a zero-effort team rollout, measuring 2-14% CPU reduction with no application code changes.",
           ],

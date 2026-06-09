@@ -93,3 +93,191 @@ html {
     --chart-label: oklch(0.75 0.01 260);
   }
 }
+
+/* ----------------------------------------------------------------------------
+   Print / Save-as-PDF: an ATS-friendly, single-column résumé.
+   On screen the document (.cv-document) is hidden. When printing, the
+   interactive site (.no-print) is hidden and only the document is rendered.
+   Plain selectable text, standard fonts and headings — no images, columns,
+   or tables — so applicant tracking systems parse it cleanly.
+---------------------------------------------------------------------------- */
+.cv-document {
+  display: none;
+}
+
+@page {
+  size: A4;
+  margin: 14mm 15mm;
+}
+
+@media print {
+  html {
+    scrollbar-gutter: auto;
+  }
+
+  /* Hide the interactive site; reveal the résumé document. */
+  .no-print {
+    display: none !important;
+  }
+
+  .cv-document {
+    display: block;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #1a1a17;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Let the document span the full printable width; @page handles margins. */
+  main,
+  main > div {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .cv-document {
+    color: #1a1a17;
+    font-size: 10pt;
+    line-height: 1.42;
+  }
+
+  /* Header --------------------------------------------------------------- */
+  .cv-doc-header {
+    margin-bottom: 13pt;
+  }
+
+  .cv-document h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23pt;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #16170f;
+  }
+
+  .cv-doc-title {
+    margin: 2pt 0 5pt;
+    font-size: 11pt;
+    letter-spacing: 0.02em;
+    color: #4c4c45;
+  }
+
+  .cv-doc-contact {
+    margin: 0;
+    font-size: 8.6pt;
+    color: #3a3a34;
+  }
+
+  .cv-doc-contact a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .cv-doc-contact > span + span::before {
+    content: "·";
+    margin: 0 6pt;
+    color: #b6b1a0;
+  }
+
+  /* Sections ------------------------------------------------------------- */
+  .cv-document section {
+    margin-top: 12pt;
+  }
+
+  .cv-document h2 {
+    margin: 0 0 6pt;
+    padding-bottom: 3pt;
+    font-size: 9.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: #56683f;
+    border-bottom: 0.75pt solid #d8d3c3;
+    break-after: avoid;
+  }
+
+  /* Entries -------------------------------------------------------------- */
+  .cv-entry + .cv-entry {
+    margin-top: 9pt;
+  }
+
+  .cv-entry--simple {
+    break-inside: avoid;
+  }
+
+  .cv-entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14pt;
+    break-after: avoid;
+  }
+
+  .cv-entry-head h3 {
+    margin: 0;
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #1f1f1a;
+  }
+
+  .cv-entry-head h4 {
+    margin: 0;
+    font-size: 9.8pt;
+    font-weight: 600;
+    color: #33332b;
+  }
+
+  .cv-period {
+    flex-shrink: 0;
+    font-size: 8.8pt;
+    color: #6a6a62;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .cv-meta {
+    margin: 1pt 0 0;
+    font-size: 8.8pt;
+    font-style: italic;
+    color: #6a6a62;
+  }
+
+  .cv-subentry {
+    margin-top: 6pt;
+    break-inside: avoid;
+  }
+
+  .cv-document p {
+    margin: 0;
+  }
+
+  .cv-summary p + p {
+    margin-top: 4pt;
+  }
+
+  .cv-document ul {
+    margin: 4pt 0 0;
+    padding-left: 14pt;
+    list-style: disc;
+  }
+
+  .cv-document li {
+    margin: 1.5pt 0;
+    break-inside: avoid;
+  }
+
+  /* Skills --------------------------------------------------------------- */
+  .cv-skills p {
+    margin: 2.5pt 0;
+    font-size: 9.4pt;
+  }
+
+  .cv-skills strong {
+    color: #1f1f1a;
+  }
+}

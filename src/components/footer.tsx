@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border/40">
+    <footer className="border-t border-border/40 no-print">
       <div className="mx-auto max-w-4xl px-5 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
         <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} António Nunes Duarte <Circle className="inline h-1.5 w-1.5 mx-2 fill-muted-foreground/60 text-muted-foreground/60" /> with <span className="text-red-500">❤️</span> from Portugal 🇵🇹</p>
         <div className="flex gap-4">

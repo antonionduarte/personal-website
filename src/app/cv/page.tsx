@@ -6,6 +6,8 @@ import type { Metadata } from "next"
 import ResumeCard from "@/components/resume-card"
 import TechnicalSkills from "./technical-skills"
 import PageTransition from "@/components/page-transition"
+import DownloadButton from "./download-button"
+import CvDocument from "./cv-document"
 import { cvData } from "@/lib/cv-data"
 
 export const metadata: Metadata = {
@@ -23,8 +25,9 @@ export default function CVPage() {
   const { person } = cvData
 
   return (
+    <>
     <PageTransition>
-      <div className="py-10 space-y-8">
+      <div className="py-10 space-y-8 no-print">
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
           <Image src="/profile.jpeg" alt={person.name} width={130} height={130} className="rounded-2xl shadow-md shadow-black/30 flex-shrink-0" />
@@ -37,6 +40,7 @@ export default function CVPage() {
                 <Github className="h-3.5 w-3.5" /> {person.github.label.replace("github.com/", "")}
               </Link>
               <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> {person.location}</span>
+              <DownloadButton />
             </div>
           </div>
         </div>
@@ -120,5 +124,9 @@ export default function CVPage() {
         <TechnicalSkills />
       </div>
     </PageTransition>
+
+    {/* Print / PDF-only ATS document */}
+    <CvDocument />
+    </>
   )
 }
